@@ -16,12 +16,12 @@ namespace QuizGame.GUI
         public ShowHighScoreList()
         {
             InitializeComponent();
-            DataManage repository = new();
+            RepositoryHandler repository = new();
             var highScoreList = repository.GetHighscores();
             BindingSource bindingSource = new();
             bindingSource.DataSource = highScoreList;
             listBoxHighScores.DataSource = bindingSource;
-            listBoxHighScores.DisplayMember = "UserName" + "Score";
+            listBoxHighScores.DisplayMember = "UserName";
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
