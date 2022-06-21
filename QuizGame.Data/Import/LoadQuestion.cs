@@ -2,11 +2,11 @@
 {
     public class LoadQuestion
     {
-        private readonly DataManage _dataManage;
+        private readonly RepositoryHandler _dataManage;
 
         public LoadQuestion()
         {
-            _dataManage = new DataManage();
+            _dataManage = new RepositoryHandler();
         }
 
         public void Load(List<Question> questions)

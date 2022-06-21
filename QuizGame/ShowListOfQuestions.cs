@@ -17,13 +17,12 @@ namespace QuizGame.GUI
         public ShowListOfQuestions()
         {
             InitializeComponent();
-            DataManage repository = new();
+            RepositoryHandler repository = new();
             var questionList = repository.GetExistingQuestions();
             BindingSource bindingSource = new();
             bindingSource.DataSource = questionList;
             listBoxQuestions.DataSource = bindingSource;
             listBoxQuestions.DisplayMember = "Query";
-            label1.DataBindings.Add("Text", bindingSource, "TramStopDescription");
             textBoxAnswer.Text = "Choose question";
         }
 
