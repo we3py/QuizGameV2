@@ -9,8 +9,7 @@ namespace QuizGame.Data.DAL
 {
     public class Repository<T> : IDisposable, IRepository<T> where T : class
     {
-        protected readonly DbContext _context;
-        protected QuizGameContext QuizGameContext { get => _context as QuizGameContext; }
+        protected QuizGameContext _context = new();
 
         public void Add(T entity)
             => _context.Set<T>().Add(entity);
