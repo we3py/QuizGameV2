@@ -10,10 +10,12 @@ namespace QuizGame.Data
 {
     public class RepositoryHandler : IRepositoryHandler
     {
-        public DataManage()
-        {
+        private QuizGameContext _context;
 
-        public DataManage(QuizGameContext context)
+        public RepositoryHandler()
+        { }
+
+        public RepositoryHandler(QuizGameContext context)
         {
             _context = context;
         }
@@ -60,4 +62,4 @@ namespace QuizGame.Data
             return highscores;
         }
     }
-}
+ }

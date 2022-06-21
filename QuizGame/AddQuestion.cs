@@ -1,4 +1,5 @@
 ﻿using QuizGame.Data;
+using QuizGame.Data.Factories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +45,7 @@ namespace QuizGame.GUI
 
                 string[] answers = { answerA, answerB, answerC, answerD };
                 var questionAddToBase = _questionFactory.GetNew(query, correctAnswer, answers);
-                new DataManage().AddQuestion(questionAddToBase);
+                new RepositoryHandler().AddQuestion(questionAddToBase);
                 this.Close();
             }
             else
