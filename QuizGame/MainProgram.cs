@@ -1,11 +1,17 @@
+using QuizGame.Data;
 using QuizGame.GUI;
+using QuizGame.Logic;
 
 namespace QuizGame
 {
     public partial class MainProgram : Form
     {
-        public MainProgram()
+        private IRepositoryHandler _repositoryHandler;
+        private IQuizManager _quizManager;
+        public MainProgram(IRepositoryHandler repositoryHandler, IQuizManager quizManager)
         {
+            _repositoryHandler = repositoryHandler;
+            _quizManager = quizManager; 
             InitializeComponent();
         }
 
@@ -16,7 +22,7 @@ namespace QuizGame
 
         private void StartQuizToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+                    
         }
 
         private void AddQuestionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,6 +79,13 @@ namespace QuizGame
         {
             var showHighScores = new ShowHighScoreList();
             showHighScores.Show();
+        }
+
+        
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
