@@ -1,4 +1,5 @@
-﻿using QuizGame.GUI.Import;
+﻿using QuizGame.Data.Import;
+using QuizGame.GUI.Import;
 namespace QuizGame.GUI
 {
     public partial class LoadFromFile : Form
@@ -30,7 +31,8 @@ namespace QuizGame.GUI
             if (openFileDialogChooseFile.FileName != String.Empty)
             {
 
-                new ImportQuestionFromCsv().Import(openFileDialogChooseFile.FileName);
+
+                new LoadQuestion().Load(new ImportQuestionFromCsv().Import(openFileDialogChooseFile.FileName));
                 this.Close();
             }
             else
