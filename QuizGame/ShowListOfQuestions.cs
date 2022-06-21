@@ -23,7 +23,6 @@ namespace QuizGame.GUI
             bindingSource.DataSource = questionList;
             listBoxQuestions.DataSource = bindingSource;
             listBoxQuestions.DisplayMember = "Query";
-            label1.DataBindings.Add("Text", bindingSource, "TramStopDescription");
             textBoxAnswer.Text = "Choose question";
         }
 

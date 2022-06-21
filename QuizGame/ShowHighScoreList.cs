@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuizGame.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace QuizGame.GUI
         public ShowHighScoreList()
         {
             InitializeComponent();
+            DataManage repository = new();
+            var highScoreList = repository.GetHighscores();
+            BindingSource bindingSource = new();
+            bindingSource.DataSource = highScoreList;
+            listBoxHighScores.DataSource = bindingSource;
+            listBoxHighScores.DisplayMember = "UserName" + "Score";
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
