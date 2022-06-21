@@ -8,12 +8,17 @@
 
             //musi sprawdzic ilosc pozycji czy rowna 6! 
             //sprawdzic czy pozycja correct answer = AnswerA/B/C/D 
-
+            ValidateNumberOfFields(dataToValidate);
 
 
 
 
             return true;
+        }
+
+        private static void ValidateNumberOfFields(string dataToValidate)
+        {
+
         }
     }
 }
