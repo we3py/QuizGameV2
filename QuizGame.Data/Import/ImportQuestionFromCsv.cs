@@ -1,5 +1,5 @@
 ﻿using CsvHelper;
-
+using CsvHelper.Configuration;
 using QuizGame.Data;
 using System.Globalization;
 
@@ -12,13 +12,22 @@ namespace QuizGame.GUI.Import
 
         public List<Question> Import(string filePath)
         {
+            var csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
+            {
+                //HasHeaderRecord = false,
+                // Comment = '#',
+                //  AllowComments = true,
+                Delimiter = ".",
+            };
             var streamReader = File.OpenText(filePath);
-            var csvReader = new CsvReader(streamReader, CultureInfo.CurrentCulture);
+
+            var csvReader = new CsvReader(streamReader, csvConfig);
             csvReader.GetRecords<Question>();
             List<Question> result = new();
 
             while (csvReader.Read())
             {
+
                 //Walidacja zawartosci csvReader przed rozpoczeciem dodawania pytan
                 var query = csvReader.GetField(0);
                 var answerA = csvReader.GetField(1);

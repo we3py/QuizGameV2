@@ -31,8 +31,8 @@ namespace QuizGame.GUI
             if (openFileDialogChooseFile.FileName != String.Empty)
             {
 
-
-                new LoadQuestion().Load(new ImportQuestionFromCsv().Import(openFileDialogChooseFile.FileName));
+                var questionToLoad = new ImportQuestionFromCsv().Import(openFileDialogChooseFile.FileName);
+                new LoadQuestion().Load(questionToLoad);
                 this.Close();
             }
             else
