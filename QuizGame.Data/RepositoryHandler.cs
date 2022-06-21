@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace QuizGame.Data
 {
-    public class DataManage : IDataManage
+    public class RepositoryHandler : IRepositoryHandler
     {
 
-        public DataManage()
+        public RepositoryHandler()
         {
         }
 

@@ -2,7 +2,7 @@
 
 namespace QuizGame.Data
 {
-    public interface IDataManage
+    public interface IRepositoryHandler
     {
         void AddHighscore(string userName, int score);
         void AddQuestion(Question question);
