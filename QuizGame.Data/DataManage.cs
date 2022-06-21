@@ -1,11 +1,19 @@
 ﻿using QuizGame.Data.DAL;
 using QuizGame.Data.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace QuizGame.Data
 {
     public class DataManage
     {
 
+        public DataManage()
+        {
+        }
 
         public void AddQuestion(Question question)
         {
@@ -24,7 +32,7 @@ namespace QuizGame.Data
 
         public void AddHighscore(string userName, int score)
         {
-            using (var repository = new Repository<Highscore>())
+            using(var repository = new Repository<Highscore>())
             {
                 var highscoreToAdd = new Highscore()
                 {
