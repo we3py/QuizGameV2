@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace QuizGame.Data
 {
-    public class DataManage
+    public class RepositoryHandler : IRepositoryHandler
     {
 
-        public DataManage()
+        public RepositoryHandler()
         {
         }
 
@@ -32,7 +32,7 @@ namespace QuizGame.Data
 
         public void AddHighscore(string userName, int score)
         {
-            using(var repository = new Repository<Highscore>())
+            using (var repository = new Repository<Highscore>())
             {
                 var highscoreToAdd = new Highscore()
                 {
