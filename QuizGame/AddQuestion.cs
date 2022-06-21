@@ -1,5 +1,4 @@
 ﻿using QuizGame.Data;
-using QuizGame.Data.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +14,6 @@ namespace QuizGame.GUI
     public partial class AddQuestion : Form
     {
         private QuestionFactory _questionFactory = new();
-
         public AddQuestion()
         {
             InitializeComponent();
@@ -35,7 +33,7 @@ namespace QuizGame.GUI
         {
             if (textBoxQuestion.Text != string.Empty && textBoxAnswerA.Text != string.Empty
                 && textBoxAnswerB.Text != string.Empty && textBoxAnswerC.Text != string.Empty
-                && textBoxAnswerD.Text != string.Empty && comboBoxCorrectAnswer.SelectedItem != null) 
+                && textBoxAnswerD.Text != string.Empty && comboBoxCorrectAnswer.SelectedItem != null)
             {
                 var query = textBoxQuestion.Text;
                 var answerA = textBoxAnswerA.Text;
