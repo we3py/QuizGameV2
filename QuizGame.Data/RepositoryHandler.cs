@@ -10,9 +10,12 @@ namespace QuizGame.Data
 {
     public class RepositoryHandler : IRepositoryHandler
     {
-
-        public RepositoryHandler()
+        public DataManage()
         {
+
+        public DataManage(QuizGameContext context)
+        {
+            _context = context;
         }
 
         public void AddQuestion(Question question)

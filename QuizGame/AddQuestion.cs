@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuizGame.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace QuizGame.GUI
 {
     public partial class AddQuestion : Form
     {
+        private QuestionFactory _questionFactory = new();
         public AddQuestion()
         {
             InitializeComponent();
@@ -33,7 +35,16 @@ namespace QuizGame.GUI
                 && textBoxAnswerB.Text != string.Empty && textBoxAnswerC.Text != string.Empty
                 && textBoxAnswerD.Text != string.Empty && comboBoxCorrectAnswer.SelectedItem != null)
             {
+                var query = textBoxQuestion.Text;
+                var answerA = textBoxAnswerA.Text;
+                var answerB = textBoxAnswerB.Text;
+                var answerC = textBoxAnswerC.Text;
+                var answerD = textBoxAnswerD.Text;
+                var correctAnswer = comboBoxCorrectAnswer.SelectedItem.ToString();
 
+                string[] answers = { answerA, answerB, answerC, answerD };
+                var questionAddToBase = _questionFactory.GetNew(query, correctAnswer, answers);
+                new DataManage().AddQuestion(questionAddToBase);
                 this.Close();
             }
             else
