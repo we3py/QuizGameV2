@@ -16,5 +16,7 @@
                 _dataManage.AddQuestion(question);
             }
         }
+
+
     }
 }
