@@ -65,7 +65,8 @@ namespace QuizGame
 
         private void buttonEndQuiz_Click(object sender, EventArgs e)
         {
-            var addScore = new AddToScoreList();
+            int score = 0;
+            var addScore = new AddToScoreList(score);
             addScore.Show();
         }
 

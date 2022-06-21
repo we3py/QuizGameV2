@@ -12,7 +12,7 @@ namespace QuizGame.GUI
 {
     public partial class AddToScoreList : Form
     {
-        public AddToScoreList()
+        public AddToScoreList(int score)
         {
             InitializeComponent();
         }
@@ -26,7 +26,6 @@ namespace QuizGame.GUI
         {
             if (textBoxUserName.Text != string.Empty)
             {
-
                 this.Close();
             }
             else
