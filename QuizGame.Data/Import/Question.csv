@@ -1,2 +1,5 @@
 Pytanie1;OdpowiedzA;OdpowiedzB;OdpowiedzC;CorrectAnswer;A
 Pytanie2;OdpowiedzA;OdpowiedzB;CorrectAnswer;OdpowiedzD;B
+PytanieDobre;OdpowiedzA;OdpowiedzB;CorrectAnswer;OdpowiedzD;C
+PytanieZle;OdpowiedzA;OdpowiedzB;CorrectAnswer;B
+Pytanie1;ZlePytanieKtorego nie ma byc w bazie lolo;No bo duplikuje sie z poprzednim pytaniem;CorrectAnswer;OdpowiedzD;B
