@@ -31,6 +31,7 @@
             this.listBoxHighScores = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.listBoxScores = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // listBoxHighScores
@@ -39,7 +40,7 @@
             this.listBoxHighScores.ItemHeight = 20;
             this.listBoxHighScores.Location = new System.Drawing.Point(12, 32);
             this.listBoxHighScores.Name = "listBoxHighScores";
-            this.listBoxHighScores.Size = new System.Drawing.Size(441, 604);
+            this.listBoxHighScores.Size = new System.Drawing.Size(282, 604);
             this.listBoxHighScores.TabIndex = 0;
             // 
             // label1
@@ -61,11 +62,21 @@
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
+            // listBoxScores
+            // 
+            this.listBoxScores.FormattingEnabled = true;
+            this.listBoxScores.ItemHeight = 20;
+            this.listBoxScores.Location = new System.Drawing.Point(300, 32);
+            this.listBoxScores.Name = "listBoxScores";
+            this.listBoxScores.Size = new System.Drawing.Size(118, 604);
+            this.listBoxScores.TabIndex = 3;
+            // 
             // ShowHighScoreList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 684);
+            this.Controls.Add(this.listBoxScores);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBoxHighScores);
@@ -81,5 +92,6 @@
         private ListBox listBoxHighScores;
         private Label label1;
         private Button buttonClose;
+        private ListBox listBoxScores;
     }
 }

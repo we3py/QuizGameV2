@@ -21,7 +21,9 @@ namespace QuizGame.GUI
             BindingSource bindingSource = new();
             bindingSource.DataSource = highScoreList;
             listBoxHighScores.DataSource = bindingSource;
+            listBoxScores.DataSource = bindingSource;
             listBoxHighScores.DisplayMember = "UserName";
+            listBoxScores.DisplayMember = "Score";
         }
 
         private void buttonClose_Click(object sender, EventArgs e)
