@@ -19,6 +19,8 @@ namespace QuizGame.GUI
         {
             InitializeComponent();
             Score = score;
+            labelScore.Text = score.ToString();
+
         }
 
         private void buttonAddScore_Click(object sender, EventArgs e)
@@ -30,7 +32,7 @@ namespace QuizGame.GUI
         {
             if (textBoxUserName.Text != string.Empty)
             {
-                DataManage repository = new();
+                RepositoryHandler repository = new();
                 repository.AddHighscore(textBoxUserName.Text, Score);
                 this.Close();
             }
