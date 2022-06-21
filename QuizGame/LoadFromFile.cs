@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿using QuizGame.GUI.Import;
 namespace QuizGame.GUI
 {
     public partial class LoadFromFile : Form
@@ -15,6 +6,7 @@ namespace QuizGame.GUI
         public LoadFromFile()
         {
             InitializeComponent();
+
         }
 
         private void buttonChooseFile_Click(object sender, EventArgs e)
@@ -37,6 +29,8 @@ namespace QuizGame.GUI
         {
             if (openFileDialogChooseFile.FileName != String.Empty)
             {
+
+                new ImportQuestionFromCsv().ImportToList(openFileDialogChooseFile.FileName);
                 this.Close();
             }
             else
