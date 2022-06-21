@@ -1,7 +1,7 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
 using QuizGame.Data;
-using QuizGame.Data.Factories;
+using QuizGame.Data.Validators;
 using System.Globalization;
 
 
@@ -24,11 +24,14 @@ namespace QuizGame.GUI.Import
 
             var csvReader = new CsvReader(streamReader, csvConfig);
             csvReader.GetRecords<Question>();
+
+
+
             List<Question> result = new();
 
             while (csvReader.Read())
             {
-
+                var boolik = QuestionValidation.Validate(csvReader.ToString());
                 //Walidacja zawartosci csvReader przed rozpoczeciem dodawania pytan
                 var query = csvReader.GetField(0);
                 var answerA = csvReader.GetField(1);

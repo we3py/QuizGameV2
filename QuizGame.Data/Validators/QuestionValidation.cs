@@ -1,6 +1,6 @@
 ﻿namespace QuizGame.Data.Validators
 {
-    static class QuestionValidation
+    public static class QuestionValidation
     {
 
         public static bool Validate(string dataToValidate)
