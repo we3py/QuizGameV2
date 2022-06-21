@@ -19,7 +19,7 @@ namespace QuizGame.GUI.Import
                 //HasHeaderRecord = false,
                 // Comment = '#',
                 //  AllowComments = true,
-                Delimiter = ".",
+                Delimiter = ";",
             };
             var streamReader = File.OpenText(filePath);
 
