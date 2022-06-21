@@ -10,11 +10,9 @@ namespace QuizGame.Data
 {
     public class DataManage
     {
-        private QuizGameContext _context;
-
-        public DataManage(QuizGameContext context)
+        public DataManage()
         {
-            _context = context;
+
         }
 
         public void AddQuestion(Question question)
