@@ -30,7 +30,7 @@ namespace QuizGame.GUI
             if (openFileDialogChooseFile.FileName != String.Empty)
             {
 
-                new ImportQuestionFromCsv().ImportToList(openFileDialogChooseFile.FileName);
+                new ImportQuestionFromCsv().Import(openFileDialogChooseFile.FileName);
                 this.Close();
             }
             else

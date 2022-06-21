@@ -10,7 +10,7 @@ namespace QuizGame.GUI.Import
     public class ImportQuestionFromCsv
     {
 
-        public List<Question> ImportToList(string filePath)
+        public List<Question> Import(string filePath)
         {
             var streamReader = File.OpenText(filePath);
             var csvReader = new CsvReader(streamReader, CultureInfo.CurrentCulture);
@@ -19,6 +19,7 @@ namespace QuizGame.GUI.Import
 
             while (csvReader.Read())
             {
+                //Walidacja zawartosci csvReader przed rozpoczeciem dodawania pytan
                 var query = csvReader.GetField(0);
                 var answerA = csvReader.GetField(1);
                 var answerB = csvReader.GetField(2);

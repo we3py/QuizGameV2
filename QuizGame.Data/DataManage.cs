@@ -1,21 +1,11 @@
 ﻿using QuizGame.Data.DAL;
 using QuizGame.Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuizGame.Data
 {
     public class DataManage
     {
-        private QuizGameContext _context;
 
-        public DataManage(QuizGameContext context)
-        {
-            _context = context;
-        }
 
         public void AddQuestion(Question question)
         {
@@ -23,7 +13,7 @@ namespace QuizGame.Data
             {
                 repository.Add(question);
                 repository.Save();
-            };            
+            };
         }
 
         public List<Question> GetExistingQuestions()
@@ -34,7 +24,7 @@ namespace QuizGame.Data
 
         public void AddHighscore(string userName, int score)
         {
-            using(var repository = new Repository<Highscore>())
+            using (var repository = new Repository<Highscore>())
             {
                 var highscoreToAdd = new Highscore()
                 {
@@ -43,7 +33,7 @@ namespace QuizGame.Data
                 };
 
                 repository.Add(highscoreToAdd);
-                repository.Save();               
+                repository.Save();
             }
         }
 
@@ -57,6 +47,6 @@ namespace QuizGame.Data
             };
 
             return highscores;
-        }        
+        }
     }
 }
