@@ -17,7 +17,7 @@ namespace QuizGame.GUI
         public ShowListOfQuestions()
         {
             InitializeComponent();
-            DataManage repository = new();
+            RepositoryHandler repository = new();
             var questionList = repository.GetExistingQuestions();
             BindingSource bindingSource = new();
             bindingSource.DataSource = questionList;
