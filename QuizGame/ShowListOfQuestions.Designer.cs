@@ -43,6 +43,7 @@
             this.listBoxQuestions.Name = "listBoxQuestions";
             this.listBoxQuestions.Size = new System.Drawing.Size(381, 384);
             this.listBoxQuestions.TabIndex = 0;
+            this.listBoxQuestions.SelectedIndexChanged += new System.EventHandler(this.listBoxQuestions_SelectedIndexChanged);
             // 
             // label1
             // 

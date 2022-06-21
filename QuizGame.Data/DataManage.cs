@@ -10,11 +10,9 @@ namespace QuizGame.Data
 {
     public class DataManage
     {
-        private QuizGameContext _context;
 
-        public DataManage(QuizGameContext context)
+        public DataManage()
         {
-            _context = context;
         }
 
         public void AddQuestion(Question question)
@@ -23,7 +21,7 @@ namespace QuizGame.Data
             {
                 repository.Add(question);
                 repository.Save();
-            };            
+            };
         }
 
         public List<Question> GetExistingQuestions()
@@ -43,7 +41,7 @@ namespace QuizGame.Data
                 };
 
                 repository.Add(highscoreToAdd);
-                repository.Save();               
+                repository.Save();
             }
         }
 
@@ -57,6 +55,6 @@ namespace QuizGame.Data
             };
 
             return highscores;
-        }        
+        }
     }
 }
