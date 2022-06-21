@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuizGame.Data;
+using QuizGame.Data.Factories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,11 @@ namespace QuizGame.GUI
 {
     public partial class AddToScoreList : Form
     {
-        public AddToScoreList()
+        public int Score { get; set; }
+        public AddToScoreList(int score)
         {
             InitializeComponent();
+            Score = score;
         }
 
         private void buttonAddScore_Click(object sender, EventArgs e)
@@ -26,7 +30,8 @@ namespace QuizGame.GUI
         {
             if (textBoxUserName.Text != string.Empty)
             {
-
+                DataManage repository = new();
+                repository.AddHighscore(textBoxUserName.Text, Score);
                 this.Close();
             }
             else

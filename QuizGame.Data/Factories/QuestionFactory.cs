@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuizGame.Data
+namespace QuizGame.Data.Factories
 {
     public class QuestionFactory
     {
         public Question GetNew(string query, string correctAnswer, params string[] answers)
         {
-            var question = new Question() 
+            var question = new Question()
             {
                 Query = query,
                 CorrectAnswer = correctAnswer,
