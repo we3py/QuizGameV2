@@ -1,5 +1,4 @@
-﻿using CsvHelper;
-using QuizGame.Data.Validators;
+﻿using QuizGame.Data.Validators;
 
 namespace QuizGame.Test.Validators
 {
