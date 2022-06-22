@@ -6,7 +6,7 @@ namespace QuizGame.Logic
     {
         string[] Answers { get; set; }
         int Highscore { get; set; }
-        Question[] InGameQuestions { get; set; }
+        List<Question> InGameQuestions { get; set; }
         bool IsPlaying { get; set; }
         int AnswerCount { get; set; }
         int QuestionNumber { get; set; }

@@ -5,7 +5,7 @@ namespace QuizGame.Logic
     public class QuizManager : IQuizManager
     {
         private IRepositoryHandler _repositoryHandler;
-        public Question[] InGameQuestions { get; set; }
+        public List<Question> InGameQuestions { get; set; }
         public string[] Answers { get; set; }
         public int Highscore { get; set; }
         public bool IsPlaying { get; set; }
@@ -16,14 +16,14 @@ namespace QuizGame.Logic
         {
             _repositoryHandler = repositoryHandler;
             QuestionNumber = questionNumber;
-            SetUpInGameData(QuestionNumber);         
+            InGameQuestions = new List<Question>();
         }
 
         #region Public methods
 
         public void SetUpAnswer(string answer)
         {
-            if (AnswerCount >= InGameQuestions.Length - 1) 
+            if (AnswerCount >= InGameQuestions.Count - 1) 
             { 
                 IsPlaying = false;
                 return;
@@ -35,7 +35,7 @@ namespace QuizGame.Logic
 
         public void CalculateHighscore()
         {
-            for (int i = 0; i < InGameQuestions.Length - 1; i++)
+            for (int i = 0; i < InGameQuestions.Count - 1; i++)
             {
                 if (CheckAnswer(InGameQuestions[i].CorrectAnswer, Answers[i]))
                 {
@@ -46,7 +46,7 @@ namespace QuizGame.Logic
 
         public void ClearInGameData()
         {
-            InGameQuestions = null;
+            InGameQuestions = new List<Question>();
             Answers = null;
             Highscore = 0;
             AnswerCount = 0;
@@ -55,7 +55,7 @@ namespace QuizGame.Logic
         public void SetUpInGameData(int questionNumber)
         {
             InGameQuestions = GetRandomQuestions(questionNumber);
-            Answers = new string[InGameQuestions.Length - 1];
+            Answers = new string[InGameQuestions.Count - 1];
             Highscore = 0;
             AnswerCount = 0;
         }
@@ -70,43 +70,33 @@ namespace QuizGame.Logic
 
             return false;
         }
-
-        private Question[] GetRandomQuestions(int questionNumber)
+        
+        private List<Question> GetRandomQuestions(int questionNumber)
         {
-            var allQuestions = _repositoryHandler.GetExistingQuestions();
-            List<Question> questionsToPlayOn = new List<Question>();
-            var indexOfQuestion = GetRandomNumber(allQuestions.Count - 1);
-            questionsToPlayOn.Add(allQuestions[indexOfQuestion]);
-
-            for (int i = 0; i < questionNumber - 1; i++)
+            Question randomQuestion = new Question();
+            for (int i = 0; i < questionNumber; i++)
             {
-                indexOfQuestion = GetRandomNumberUnreapetable(indexOfQuestion, questionNumber);
-                questionsToPlayOn.Add(allQuestions[indexOfQuestion]);
+                randomQuestion = GetRandomQuestion();
+
+                if (InGameQuestions.Contains(randomQuestion))
+                {
+                    i--;
+                    continue;
+                }
+
+                InGameQuestions.Add(randomQuestion);
             }
 
-            return questionsToPlayOn.ToArray();
+            return InGameQuestions;
         }
 
-        private int GetRandomNumberUnreapetable(int previousNumber, int range)
+        
+        private Question GetRandomQuestion()
         {
-            Random random = new Random();
-            var randomNumber = random.Next(range);
-
-            if (randomNumber == previousNumber)
-            {
-                GetRandomNumberUnreapetable(previousNumber, range);
-            }
-
-            return randomNumber;
-        }
-
-        private int GetRandomNumber(int range)
-        {
-            Random random = new Random();
-            var randomNumber = random.Next(range);
-
-            return randomNumber;
-        }
+            var random = new Random();
+            var existingQuestions = _repositoryHandler.GetExistingQuestions();
+            return existingQuestions[random.Next(existingQuestions.Count)];
+        }       
         #endregion
     }
 }
