@@ -75,5 +75,10 @@ namespace QuizGame
             var showHighScores = new ShowHighScoreList();
             showHighScores.Show();
         }
+
+        private void startMadnessModeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
