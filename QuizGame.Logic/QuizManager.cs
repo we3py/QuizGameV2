@@ -8,23 +8,34 @@ namespace QuizGame.Logic
         public Question[] InGameQuestions { get; set; }
         public string[] Answers { get; set; }
         public int Highscore { get; set; }
+        public bool IsPlaying { get; set; }
+        public int AnswerCount { get; set; }
+        public int QuestionNumber { get; set; }
 
         public QuizManager(IRepositoryHandler repositoryHandler, int questionNumber)
         {
             _repositoryHandler = repositoryHandler;
-            SetUpInGameData(questionNumber);         
+            QuestionNumber = questionNumber;
+            SetUpInGameData(QuestionNumber);         
         }
 
         #region Public methods
 
-        public void SetUpAnswer(int answerIndex, string answer)
+        public void SetUpAnswer(string answer)
         {
-            Answers[answerIndex] = answer;
+            if (AnswerCount >= InGameQuestions.Length - 1) 
+            { 
+                IsPlaying = false;
+                return;
+            }
+
+            Answers[AnswerCount] = answer;
+            AnswerCount++;
         }
 
         public void CalculateHighscore()
         {
-            for (int i = 0; i < InGameQuestions.Length; i++)
+            for (int i = 0; i < InGameQuestions.Length - 1; i++)
             {
                 if (CheckAnswer(InGameQuestions[i].CorrectAnswer, Answers[i]))
                 {
@@ -38,14 +49,18 @@ namespace QuizGame.Logic
             InGameQuestions = null;
             Answers = null;
             Highscore = 0;
+            AnswerCount = 0;
         }
 
         public void SetUpInGameData(int questionNumber)
         {
             InGameQuestions = GetRandomQuestions(questionNumber);
-            Answers = new string[questionNumber];
+            Answers = new string[InGameQuestions.Length - 1];
+            Highscore = 0;
+            AnswerCount = 0;
         }
 
+        
         #endregion
 
         #region Private methods
@@ -63,7 +78,7 @@ namespace QuizGame.Logic
             var indexOfQuestion = GetRandomNumber(allQuestions.Count - 1);
             questionsToPlayOn.Add(allQuestions[indexOfQuestion]);
 
-            for (int i = 0; i < questionNumber; i++)
+            for (int i = 0; i < questionNumber - 1; i++)
             {
                 indexOfQuestion = GetRandomNumberUnreapetable(indexOfQuestion, questionNumber);
                 questionsToPlayOn.Add(allQuestions[indexOfQuestion]);
