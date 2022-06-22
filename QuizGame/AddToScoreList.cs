@@ -16,10 +16,12 @@ namespace QuizGame.GUI
     {
         private IQuizManager _quizManager;
         private IRepositoryHandler _repositoryHandler;
-        public AddToScoreList(IQuizManager quizManager, IRepositoryHandler repositoryHandler)
+        private MainProgram _mainProgram;
+        public AddToScoreList(IQuizManager quizManager, IRepositoryHandler repositoryHandler, MainProgram mainProgram)
         {
             _quizManager = quizManager;
             _repositoryHandler = repositoryHandler;
+            _mainProgram = mainProgram;
             InitializeComponent();
             _quizManager.CalculateHighscore();
             labelScore.Text = _quizManager.Highscore.ToString();
@@ -28,6 +30,7 @@ namespace QuizGame.GUI
         private void buttonAddScore_Click(object sender, EventArgs e)
         {
             AddToHighScoreList();
+            _mainProgram.SetDefaultValuesInMainProgram();
         }
 
         private void AddToHighScoreList()
@@ -35,7 +38,7 @@ namespace QuizGame.GUI
             if (textBoxUserName.Text != string.Empty)
             {
                 _repositoryHandler.AddHighscore(textBoxUserName.Text, _quizManager.Highscore);
-                _quizManager.ClearInGameData();
+                _quizManager.ClearInGameData();              
                 this.Close();
             }
             else
