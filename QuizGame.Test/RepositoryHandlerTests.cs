@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QuizGame.Data;
 
-
 namespace QuizGame.Test
 {
     [TestFixture]
