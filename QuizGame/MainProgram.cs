@@ -22,7 +22,12 @@ namespace QuizGame
 
         private void StartQuizToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                    
+            _quizManager.SetUpInGameData(_quizManager.QuestionNumber);
+            richTextBox1.Text = _quizManager
+                .InGameQuestions[_quizManager.AnswerCount]
+                .ToString();
+            SetAnswersOnButtons();
+            _quizManager.IsPlaying = true;
         }
 
         private void AddQuestionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,27 +56,64 @@ namespace QuizGame
 
         private void buttonAnwerA_Click(object sender, EventArgs e)
         {
-
+            SetAnswersOnButtons();
+            SetAnswerAndGoToNext("A");
         }
 
         private void buttonAnwerB_Click(object sender, EventArgs e)
         {
-
+            SetAnswersOnButtons();
+            SetAnswerAndGoToNext("B");
         }
 
         private void buttonAnwerC_Click(object sender, EventArgs e)
         {
-
+            SetAnswersOnButtons();
+            SetAnswerAndGoToNext("C");
         }
 
         private void buttonAnwerD_Click(object sender, EventArgs e)
         {
+            SetAnswersOnButtons();
+            SetAnswerAndGoToNext("D");
+        }
 
+        private void SetAnswerAndGoToNext(string answer)
+        {
+            if (!_quizManager.IsPlaying)
+            {
+                MessageBox.Show("No more questions");
+                return;
+            }
+
+            _quizManager.SetUpAnswer(answer);
+            richTextBox1.Text = _quizManager
+                .InGameQuestions[_quizManager.AnswerCount]
+                .ToString();
+        }
+
+        private void SetAnswersOnButtons()
+        {
+            buttonAnwerA.Text = _quizManager
+                .InGameQuestions[_quizManager.AnswerCount]
+                .AnswerA;
+
+            buttonAnwerB.Text = _quizManager
+                .InGameQuestions[_quizManager.AnswerCount]
+                .AnswerB;
+
+            buttonAnwerC.Text = _quizManager
+                .InGameQuestions[_quizManager.AnswerCount]
+                .AnswerC;
+
+            buttonAnwerD.Text = _quizManager
+                .InGameQuestions[_quizManager.AnswerCount]
+                .AnswerD;
         }
 
         private void buttonEndQuiz_Click(object sender, EventArgs e)
         {
-            var addScore = new AddToScoreList();
+            var addScore = new AddToScoreList(_quizManager, _repositoryHandler);
             addScore.Show();
         }
 
@@ -82,7 +124,6 @@ namespace QuizGame
         }
 
         
-
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             
