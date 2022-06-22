@@ -56,7 +56,7 @@
             // 
             this.buttonClose.Location = new System.Drawing.Point(12, 642);
             this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(441, 29);
+            this.buttonClose.Size = new System.Drawing.Size(406, 30);
             this.buttonClose.TabIndex = 2;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = true;
@@ -75,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 684);
+            this.ClientSize = new System.Drawing.Size(435, 684);
             this.Controls.Add(this.listBoxScores);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.label1);
