@@ -1,3 +1,6 @@
+using QuizGame.Data;
+using QuizGame.Logic;
+
 namespace QuizGame
 {
     public static class Program
@@ -11,7 +14,9 @@ namespace QuizGame
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainProgram());
+            var repositoryHandler = new RepositoryHandler();
+            var quizManager = new QuizManager(repositoryHandler, 10);
+            Application.Run(new MainProgram(repositoryHandler, quizManager));
         }
     }
 }
