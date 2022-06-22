@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\QuizGame.Data\QuizGame.Data.csproj" />
+    <ProjectReference Include="..\QuizGame.Logic\QuizGame.Logic.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,6 @@
 ﻿using QuizGame.Data;
 using QuizGame.Data.Factories;
+using QuizGame.Logic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,26 +15,31 @@ namespace QuizGame.GUI
 {
     public partial class AddToScoreList : Form
     {
-        public int Score { get; set; }
-        public AddToScoreList(int score)
+        private IQuizManager _quizManager;
+        private IRepositoryHandler _repositoryHandler;
+        private MainProgram _mainProgram;
+        public AddToScoreList(IQuizManager quizManager, IRepositoryHandler repositoryHandler, MainProgram mainProgram)
         {
+            _quizManager = quizManager;
+            _repositoryHandler = repositoryHandler;
+            _mainProgram = mainProgram;
             InitializeComponent();
-            Score = score;
-            labelScore.Text = score.ToString();
-
+            _quizManager.CalculateHighscore();
+            labelScore.Text = _quizManager.Highscore.ToString();
         }
 
         private void buttonAddScore_Click(object sender, EventArgs e)
         {
             AddToHighScoreList();
+            _mainProgram.SetDefaultValuesInMainProgram();
         }
 
         private void AddToHighScoreList()
         {
             if (textBoxUserName.Text != string.Empty)
             {
-                RepositoryHandler repository = new();
-                repository.AddHighscore(textBoxUserName.Text, Score);
+                _repositoryHandler.AddHighscore(textBoxUserName.Text, _quizManager.Highscore);
+                _quizManager.ClearInGameData();              
                 this.Close();
             }
             else
@@ -46,6 +52,11 @@ namespace QuizGame.GUI
                     this.labelEmptyName.Text = string.Empty;
                 }
             }
+        }
+
+        private void labelScore_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

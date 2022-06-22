@@ -176,6 +176,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(990, 230);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // buttonEndQuiz
             // 
@@ -185,6 +186,7 @@
             this.buttonEndQuiz.TabIndex = 6;
             this.buttonEndQuiz.Text = "End quiz";
             this.buttonEndQuiz.UseVisualStyleBackColor = true;
+            this.buttonEndQuiz.Visible = false;
             this.buttonEndQuiz.Click += new System.EventHandler(this.buttonEndQuiz_Click);
             // 
             // MainProgram
