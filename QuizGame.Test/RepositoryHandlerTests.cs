@@ -1,6 +1,8 @@
-﻿using NSubstitute;
+﻿using Microsoft.EntityFrameworkCore;
+using NSubstitute;
 using NUnit.Framework;
 using QuizGame.Data;
+using QuizGame.Data.Entities;
 using System;
 
 namespace QuizGame.Test
@@ -22,35 +24,35 @@ namespace QuizGame.Test
         }
 
         [Test]
-        public void AddQuestion_StateUnderTest_ExpectedBehavior()
+        public void AddQuestion_QuestionIsNull_ThrowNullReferenceException()
         {
             // Arrange
             var repositoryHandler = this.CreateRepositoryHandler();
             Question question = null;
 
             // Act
-            repositoryHandler.AddQuestion(
-                question);
 
             // Assert
-            Assert.Fail();
+            Assert.Throws<NullReferenceException>(() => repositoryHandler.AddQuestion(question));
         }
 
         [Test]
-        public void GetExistingQuestions_StateUnderTest_ExpectedBehavior()
+        public void GetExistingQuestions_GetListOfQuestions_CorrectListOfQuestions()
         {
             // Arrange
             var repositoryHandler = this.CreateRepositoryHandler();
+            var context = new QuizGameContext();
+            var expected = context.Questions.ToList();
 
             // Act
             var result = repositoryHandler.GetExistingQuestions();
 
             // Assert
-            Assert.Fail();
+            Assert.That(result, Is.EqualTo(expected));
         }
 
         [Test]
-        public void AddHighscore_StateUnderTest_ExpectedBehavior()
+        public void AddHighscore_UserNameNull_DbUpdateException()
         {
             // Arrange
             var repositoryHandler = this.CreateRepositoryHandler();
@@ -58,25 +60,24 @@ namespace QuizGame.Test
             int score = 0;
 
             // Act
-            repositoryHandler.AddHighscore(
-                userName,
-                score);
 
             // Assert
-            Assert.Fail();
+            Assert.Throws<DbUpdateException>(() => repositoryHandler.AddHighscore(userName, score));
         }
 
         [Test]
-        public void GetHighscores_StateUnderTest_ExpectedBehavior()
+        public void GetHighscores_GetListOfHighscores_CorrectListOfHighScores()
         {
             // Arrange
             var repositoryHandler = this.CreateRepositoryHandler();
+            var context = new QuizGameContext();
+            var expected = context.Highscores.ToList();
 
             // Act
             var result = repositoryHandler.GetHighscores();
 
             // Assert
-            Assert.Fail();
+            Assert.That(result, Is.EqualTo(expected));
         }
     }
 }
