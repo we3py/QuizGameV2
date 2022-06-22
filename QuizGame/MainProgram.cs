@@ -82,7 +82,8 @@ namespace QuizGame
         {
             if (!_quizManager.IsPlaying)
             {
-                MessageBox.Show("No more questions");
+                buttonEndQuiz.Visible = true;
+                MessageBox.Show("No more questions. Press End Quiz button");
                 return;
             }
 
@@ -111,9 +112,20 @@ namespace QuizGame
                 .AnswerD;
         }
 
+        public void SetDefaultValuesInMainProgram()
+        {
+            buttonAnwerA.Text = "A";
+            buttonAnwerB.Text = "B";
+            buttonAnwerC.Text = "C";
+            buttonAnwerD.Text = "D";
+
+            richTextBox1.Text = String.Empty;
+            buttonEndQuiz.Visible = false;
+        }
+
         private void buttonEndQuiz_Click(object sender, EventArgs e)
         {
-            var addScore = new AddToScoreList(_quizManager, _repositoryHandler);
+            var addScore = new AddToScoreList(_quizManager, _repositoryHandler, this);
             addScore.Show();
         }
 
