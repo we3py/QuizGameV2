@@ -2,9 +2,7 @@
 {
     public class Repository<T> : IDisposable, IRepository<T> where T : class
     {
-
         protected QuizGameContext _context = new();
-
 
         public void Add(T entity)
             => _context.Set<T>().Add(entity);
