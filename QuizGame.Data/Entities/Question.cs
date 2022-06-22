@@ -10,5 +10,10 @@
         public string AnswerD { get; set; }
         public string CorrectAnswer { get; set; }
 
+        public override string ToString()
+        {
+            return Query;
+        }
+
     }
 }
