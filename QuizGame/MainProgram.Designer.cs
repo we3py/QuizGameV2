@@ -44,7 +44,6 @@
             this.buttonAnwerD = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.buttonEndQuiz = new System.Windows.Forms.Button();
-            this.startMadnessModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,8 +65,7 @@
             // 
             this.playToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DrawQuestionToolStripMenuItem,
-            this.StartQuizToolStripMenuItem,
-            this.startMadnessModeToolStripMenuItem});
+            this.StartQuizToolStripMenuItem});
             this.playToolStripMenuItem.Name = "playToolStripMenuItem";
             this.playToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
             this.playToolStripMenuItem.Text = "Play";
@@ -75,14 +73,14 @@
             // DrawQuestionToolStripMenuItem
             // 
             this.DrawQuestionToolStripMenuItem.Name = "DrawQuestionToolStripMenuItem";
-            this.DrawQuestionToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
+            this.DrawQuestionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.DrawQuestionToolStripMenuItem.Text = "Draw question";
             this.DrawQuestionToolStripMenuItem.Click += new System.EventHandler(this.DrawQuestionToolStripMenuItem_Click);
             // 
             // StartQuizToolStripMenuItem
             // 
             this.StartQuizToolStripMenuItem.Name = "StartQuizToolStripMenuItem";
-            this.StartQuizToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
+            this.StartQuizToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.StartQuizToolStripMenuItem.Text = "Start quiz";
             this.StartQuizToolStripMenuItem.Click += new System.EventHandler(this.StartQuizToolStripMenuItem_Click);
             // 
@@ -99,21 +97,21 @@
             // AddQuestionToolStripMenuItem
             // 
             this.AddQuestionToolStripMenuItem.Name = "AddQuestionToolStripMenuItem";
-            this.AddQuestionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.AddQuestionToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.AddQuestionToolStripMenuItem.Text = "Add question";
             this.AddQuestionToolStripMenuItem.Click += new System.EventHandler(this.AddQuestionToolStripMenuItem_Click);
             // 
             // loadFileToolStripMenuItem
             // 
             this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
-            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.loadFileToolStripMenuItem.Text = "Load file";
             this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.loadFileToolStripMenuItem_Click);
             // 
             // showAllQuestionsToolStripMenuItem
             // 
             this.showAllQuestionsToolStripMenuItem.Name = "showAllQuestionsToolStripMenuItem";
-            this.showAllQuestionsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.showAllQuestionsToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.showAllQuestionsToolStripMenuItem.Text = "Show all questions";
             this.showAllQuestionsToolStripMenuItem.Click += new System.EventHandler(this.showAllQuestionsToolStripMenuItem_Click);
             // 
@@ -191,13 +189,6 @@
             this.buttonEndQuiz.Visible = false;
             this.buttonEndQuiz.Click += new System.EventHandler(this.buttonEndQuiz_Click);
             // 
-            // startMadnessModeToolStripMenuItem
-            // 
-            this.startMadnessModeToolStripMenuItem.Name = "startMadnessModeToolStripMenuItem";
-            this.startMadnessModeToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
-            this.startMadnessModeToolStripMenuItem.Text = "Start Madness Mode";
-          
-            // 
             // MainProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -238,6 +229,5 @@
         private RichTextBox richTextBox1;
         private Button buttonEndQuiz;
         private ToolStripMenuItem viewHighscoresToolStripMenuItem;
-        private ToolStripMenuItem startMadnessModeToolStripMenuItem;
     }
 }
