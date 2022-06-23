@@ -10,7 +10,7 @@ namespace QuizGame.Test
         public void SetUp()
         {
         }
-
+/*
         private static RepositoryHandler CreateRepositoryHandler()
         {
             return new RepositoryHandler();
@@ -91,6 +91,6 @@ namespace QuizGame.Test
                     Assert.That(expected[i].Score, Is.EqualTo(result[i].Score));
                 });
             }
-        }
+        }*/
     }
 }
