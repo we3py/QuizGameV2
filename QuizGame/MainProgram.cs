@@ -19,29 +19,36 @@ namespace QuizGame
         #region Menu
         private void DrawQuestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StartQuiz(1);
-            richTextBox1.Visible = true;
-            buttonAnwerA.Visible = true;
-            buttonAnwerB.Visible = true;
-            buttonAnwerC.Visible = true;
-            buttonAnwerD.Visible = true;
-
-                //richTextBox1.Visible = false;
-                //buttonAnwerA.Visible = false;
-                //buttonAnwerB.Visible = false;
-                //buttonAnwerC.Visible = false;
-                //buttonAnwerD.Visible = false;
-
+            if (_repositoryHandler.GetExistingQuestions().Count() > 0)
+            {
+                StartQuiz(1);
+                richTextBox1.Visible = true;
+                buttonAnwerA.Visible = true;
+                buttonAnwerB.Visible = true;
+                buttonAnwerC.Visible = true;
+                buttonAnwerD.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("No questions in database!\nAdd at least one question.");
+            }
         }
 
         private void StartQuizToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StartQuiz(_quizManager.QuestionNumber);
-            richTextBox1.Visible = true;
-            buttonAnwerA.Visible = true;
-            buttonAnwerB.Visible = true;
-            buttonAnwerC.Visible = true;
-            buttonAnwerD.Visible = true;
+            if (_repositoryHandler.GetExistingQuestions().Count() >= _quizManager.QuestionNumber)
+            {
+                StartQuiz(_quizManager.QuestionNumber);
+                richTextBox1.Visible = true;
+                buttonAnwerA.Visible = true;
+                buttonAnwerB.Visible = true;
+                buttonAnwerC.Visible = true;
+                buttonAnwerD.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Not enough questions in database!\nAdd more questions.");
+            }
         }
 
         private void AddQuestionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -77,10 +84,10 @@ namespace QuizGame
         #region Answer Buttons
         private void ButtonAnwerA_Click(object sender, EventArgs e)
         {
-            if(!_quizManager.IsPlaying) 
+            if(!_quizManager.IsPlaying)
             {
                 MessageBox.Show("You finished your quiz");
-                return; 
+                return;
             }
             SetAnswerAndGoToNext("A");
             ShowAnswerResult(buttonAnwerA);
@@ -162,19 +169,19 @@ namespace QuizGame
             {
                 return;
             }
-            if (!_quizManager.IsPlaying) 
+            if (!_quizManager.IsPlaying)
             {
                 buttonEndQuiz.Visible = true;
-                return; 
+                return;
             }
-       
+
             richTextBox1.Text = _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
                 .ToString();
         }
 
         private void SetAnswersOnButtons()
-        {           
+        {
             _answerButtons.Clear();
 
             buttonAnwerA.Text = "A: " + _quizManager
