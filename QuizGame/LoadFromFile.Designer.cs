@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadFromFile));
             this.openFileDialogChooseFile = new System.Windows.Forms.OpenFileDialog();
             this.buttonChooseFile = new System.Windows.Forms.Button();
             this.buttonLoadData = new System.Windows.Forms.Button();
@@ -83,6 +84,7 @@
             this.Controls.Add(this.labelFileName);
             this.Controls.Add(this.buttonLoadData);
             this.Controls.Add(this.buttonChooseFile);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoadFromFile";
             this.Text = "Load From File";
             this.ResumeLayout(false);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShowHighScoreList));
             this.listBoxHighScores = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonClose = new System.Windows.Forms.Button();
@@ -80,6 +81,7 @@
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBoxHighScores);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShowHighScoreList";
             this.Text = "High scores";
             this.ResumeLayout(false);
