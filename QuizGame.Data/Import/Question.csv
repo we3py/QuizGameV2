@@ -3,3 +3,17 @@ Pytanie2;OdpowiedzA;OdpowiedzB;CorrectAnswer;OdpowiedzD;B
 PytanieDobre;OdpowiedzA;OdpowiedzB;CorrectAnswer;OdpowiedzD;C
 PytanieZle;OdpowiedzA;OdpowiedzB;CorrectAnswer;B
 Pytanie1;ZlePytanieKtorego nie ma byc w bazie lolo;No bo duplikuje sie z poprzednim pytaniem;CorrectAnswer;OdpowiedzD;B
+I know what azure portal is;
+Ci is abbreviation of:;
+CD is abbreviation of:;
+I can explain the purpose of CI;
+I know what pipeline is;
+What is yaml?;
+Advantages of observer pattern:;
+Event is:;
+Event Handler is:;
+Delegate is:;
+Multicast delegate is:;
+Partial class is:;
+Winforms is:;
+Databinding in winforms is:;

@@ -1,3 +1,7 @@
+using QuizGame.Data;
+using QuizGame.GUI;
+using QuizGame.Logic;
+
 namespace QuizGame
 {
     public partial class MainProgram : Form

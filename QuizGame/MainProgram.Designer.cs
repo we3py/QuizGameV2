@@ -196,7 +196,7 @@
             this.startMadnessModeToolStripMenuItem.Name = "startMadnessModeToolStripMenuItem";
             this.startMadnessModeToolStripMenuItem.Size = new System.Drawing.Size(228, 26);
             this.startMadnessModeToolStripMenuItem.Text = "Start Madness Mode";
-            this.startMadnessModeToolStripMenuItem.Click += new System.EventHandler(this.startMadnessModeToolStripMenuItem_Click);
+          
             // 
             // MainProgram
             // 
