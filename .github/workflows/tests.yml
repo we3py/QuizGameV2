@@ -19,7 +19,7 @@ jobs:
 
     env:
       Solution_Name: QuizGame.sln                         
-      Test_Project_Path: src\QuizGame.Test\QuizGame.Test.csproj
+      Test_Project_Path: QuizGame.Test\QuizGame.Test.csproj
 
     steps:
     - name: Checkout
