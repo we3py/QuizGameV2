@@ -1,8 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using QuizGame.Data;
-using Moq;
-
-namespace QuizGame.Test
+﻿namespace QuizGame.Test
 {
     [TestFixture]
     public class RepositoryHandlerTests

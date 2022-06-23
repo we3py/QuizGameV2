@@ -1,6 +1,4 @@
-﻿using QuizGame.Data;
-
-namespace QuizGame.Logic
+﻿namespace QuizGame.Logic
 {
     public class QuizManager : IQuizManager
     {

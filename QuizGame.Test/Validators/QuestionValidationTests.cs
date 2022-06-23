@@ -1,6 +1,4 @@
-﻿using QuizGame.Data.Validators;
-
-namespace QuizGame.Test.Validators
+﻿namespace QuizGame.Test.Validators
 {
     [TestFixture]
     public class QuestionValidationTests

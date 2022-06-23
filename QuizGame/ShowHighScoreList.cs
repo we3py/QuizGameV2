@@ -1,6 +1,4 @@
-﻿using QuizGame.Data;
-
-namespace QuizGame.GUI
+﻿namespace QuizGame.GUI
 {
     public partial class ShowHighScoreList : Form
     {
@@ -8,7 +6,8 @@ namespace QuizGame.GUI
         {
             InitializeComponent();
             RepositoryHandler repository = new();
-            var highScoreList = repository.GetHighscores();
+            var ScoreList = repository.GetHighscores();
+            var highScoreList = ScoreList.OrderByDescending(x => x.Score).ToList();
             BindingSource bindingSource = new()
             {
                 DataSource = highScoreList

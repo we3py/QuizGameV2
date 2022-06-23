@@ -1,7 +1,4 @@
-﻿using QuizGame.Data.DAL;
-using QuizGame.Data.Entities;
-
-namespace QuizGame.Data
+﻿namespace QuizGame.Data
 {
     public class RepositoryHandler : IRepositoryHandler
     {

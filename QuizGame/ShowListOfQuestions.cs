@@ -1,6 +1,4 @@
-﻿using QuizGame.Data;
-
-namespace QuizGame.GUI
+﻿namespace QuizGame.GUI
 {
     public partial class ShowListOfQuestions : Form
     {

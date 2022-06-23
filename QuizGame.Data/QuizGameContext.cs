@@ -1,7 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using QuizGame.Data.Entities;
-
-namespace QuizGame.Data
+﻿namespace QuizGame.Data
 {
     public class QuizGameContext : DbContext
     {

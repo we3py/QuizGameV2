@@ -1,11 +1,4 @@
-﻿using CsvHelper;
-using CsvHelper.Configuration;
-using QuizGame.Data;
-using QuizGame.Data.Factories;
-using QuizGame.Data.Validators;
-using System.Globalization;
-
-namespace QuizGame.GUI.Import
+﻿namespace QuizGame.GUI.Import
 {
     public class ImportQuestionFromCsv
     {

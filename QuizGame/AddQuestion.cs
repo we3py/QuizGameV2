@@ -1,7 +1,4 @@
-﻿using QuizGame.Data;
-using QuizGame.Data.Factories;
-
-namespace QuizGame.GUI
+﻿namespace QuizGame.GUI
 {
     public partial class AddQuestion : Form
     {

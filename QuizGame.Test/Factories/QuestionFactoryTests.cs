@@ -1,6 +1,4 @@
-﻿using QuizGame.Data.Factories;
-
-namespace QuizGame.Test.Factories
+﻿namespace QuizGame.Test.Factories
 {
     [TestFixture]
     public class QuestionFactoryTests

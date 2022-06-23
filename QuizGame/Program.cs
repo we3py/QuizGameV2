@@ -1,6 +1,3 @@
-using QuizGame.Data;
-using QuizGame.Logic;
-
 namespace QuizGame
 {
     public static class Program

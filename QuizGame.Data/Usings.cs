@@ -1,0 +1,11 @@
+﻿global using CsvHelper;
+global using CsvHelper.Configuration;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Infrastructure;
+global using Microsoft.EntityFrameworkCore.Migrations;
+global using QuizGame.Data;
+global using QuizGame.Data.DAL;
+global using QuizGame.Data.Entities;
+global using QuizGame.Data.Factories;
+global using QuizGame.Data.Validators;
+global using System.Globalization;

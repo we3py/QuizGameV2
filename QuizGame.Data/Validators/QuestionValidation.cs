@@ -1,6 +1,4 @@
-﻿using CsvHelper;
-
-#pragma warning disable RCS1073
+﻿#pragma warning disable RCS1073
 namespace QuizGame.Data.Validators
 {
     public static class QuestionValidation

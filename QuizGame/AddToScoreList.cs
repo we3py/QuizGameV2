@@ -1,7 +1,4 @@
-﻿using QuizGame.Data;
-using QuizGame.Logic;
-
-namespace QuizGame.GUI
+﻿namespace QuizGame.GUI
 {
     public partial class AddToScoreList : Form
     {

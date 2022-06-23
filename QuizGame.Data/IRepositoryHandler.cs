@@ -1,6 +1,4 @@
-﻿using QuizGame.Data.Entities;
-
-namespace QuizGame.Data
+﻿namespace QuizGame.Data
 {
     public interface IRepositoryHandler
     {
