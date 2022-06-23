@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QuizGame.Data.Factories
+﻿namespace QuizGame.Data.Factories
 {
     public class QuestionFactory
     {
+#pragma warning disable CA1822
         public Question GetNew(string query, string correctAnswer, params string[] answers)
+#pragma warning restore CA1822
         {
             var question = new Question()
             {

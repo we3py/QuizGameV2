@@ -43,7 +43,7 @@
             this.buttonChooseFile.TabIndex = 0;
             this.buttonChooseFile.Text = "Choose File";
             this.buttonChooseFile.UseVisualStyleBackColor = true;
-            this.buttonChooseFile.Click += new System.EventHandler(this.buttonChooseFile_Click);
+            this.buttonChooseFile.Click += new System.EventHandler(this.ButtonChooseFile_Click);
             // 
             // buttonLoadData
             // 
@@ -53,7 +53,7 @@
             this.buttonLoadData.TabIndex = 1;
             this.buttonLoadData.Text = "Load data";
             this.buttonLoadData.UseVisualStyleBackColor = true;
-            this.buttonLoadData.Click += new System.EventHandler(this.buttonLoadData_Click);
+            this.buttonLoadData.Click += new System.EventHandler(this.ButtonLoadData_Click);
             // 
             // labelFileName
             // 
@@ -72,7 +72,7 @@
             this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // LoadFromFile
             // 

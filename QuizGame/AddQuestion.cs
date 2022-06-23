@@ -1,31 +1,22 @@
 ﻿using QuizGame.Data;
 using QuizGame.Data.Factories;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuizGame.GUI
 {
     public partial class AddQuestion : Form
     {
-        private QuestionFactory _questionFactory = new();
+        private readonly QuestionFactory _questionFactory = new();
         public AddQuestion()
         {
             InitializeComponent();
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void ButtonAdd_Click(object sender, EventArgs e)
         {
             AddNewQuestion();
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -41,36 +32,36 @@ namespace QuizGame.GUI
                 var answerB = textBoxAnswerB.Text;
                 var answerC = textBoxAnswerC.Text;
                 var answerD = textBoxAnswerD.Text;
-                var correctAnswer = comboBoxCorrectAnswer.SelectedItem.ToString();
+                string? correctAnswer = comboBoxCorrectAnswer.SelectedItem.ToString();
 
                 string[] answers = { answerA, answerB, answerC, answerD };
-                var questionAddToBase = _questionFactory.GetNew(query, correctAnswer, answers);
+                var questionAddToBase = _questionFactory.GetNew(query, correctAnswer!, answers);
                 new RepositoryHandler().AddQuestion(questionAddToBase);
                 this.Close();
             }
             else
             {
-                if (textBoxQuestion.Text == string.Empty)
+                if (textBoxQuestion.Text?.Length == 0)
                 {
                     this.labelQuestion.Text = "Empty Question";
                     labelQuestion.Update();
                 }
-                if (textBoxAnswerA.Text == string.Empty)
+                if (textBoxAnswerA.Text?.Length == 0)
                 {
                     this.labelAnswA.Text = "Empty answer";
                     labelAnswA.Update();
                 }
-                if (textBoxAnswerB.Text == string.Empty)
+                if (textBoxAnswerB.Text?.Length == 0)
                 {
                     this.labelAnswB.Text = "Empty answer";
                     labelAnswB.Update();
                 }
-                if (textBoxAnswerC.Text == string.Empty)
+                if (textBoxAnswerC.Text?.Length == 0)
                 {
                     this.labelAnswC.Text = "Empty answer";
                     labelAnswC.Update();
                 }
-                if (textBoxAnswerD.Text == string.Empty)
+                if (textBoxAnswerD.Text?.Length == 0)
                 {
                     this.labelAnswD.Text = "Empty answer";
                     labelAnswD.Update();

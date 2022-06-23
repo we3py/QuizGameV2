@@ -5,14 +5,13 @@ using QuizGame.Data.Factories;
 using QuizGame.Data.Validators;
 using System.Globalization;
 
-
-
 namespace QuizGame.GUI.Import
 {
     public class ImportQuestionFromCsv
     {
-
+#pragma warning disable CA1822
         public List<Question> Import(string filePath)
+#pragma warning restore CA1822
         {
             var csvConfig = new CsvConfiguration(CultureInfo.CurrentCulture)
             {
@@ -22,7 +21,6 @@ namespace QuizGame.GUI.Import
             var csvReader = new CsvReader(streamReader, csvConfig);
             csvReader.GetRecords<Question>();
             return GenerateQuestionList(csvReader);
-
         }
 
         private static List<Question> GenerateQuestionList(CsvReader csvReader)
@@ -31,7 +29,6 @@ namespace QuizGame.GUI.Import
 
             while (csvReader.Read())
             {
-
                 if (QuestionValidation.Validate(csvReader))
                 {
                     var query = csvReader.GetField(0);
@@ -42,8 +39,6 @@ namespace QuizGame.GUI.Import
                     var CorrectAnswer = csvReader.GetField(5);
                     result.Add(new QuestionFactory().GetNew(query, CorrectAnswer, answerA, answerB, answerC, answerD));
                 }
-
-
             }
 
             return result;

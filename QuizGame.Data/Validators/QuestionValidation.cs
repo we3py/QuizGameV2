@@ -1,15 +1,20 @@
 ﻿using CsvHelper;
 
+#pragma warning disable RCS1073
 namespace QuizGame.Data.Validators
 {
     public static class QuestionValidation
     {
-
         public static bool Validate(CsvReader dataToValidate)
         {
-
-            if (CheckRequirements(dataToValidate)) { return true; } else return false;
-
+            if (CheckRequirements(dataToValidate))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         private static bool CheckRequirements(CsvReader dataToValidate)
@@ -20,8 +25,10 @@ namespace QuizGame.Data.Validators
             {
                 return true;
             }
-            else return false;
-
+            else
+            {
+                return false;
+            }
         }
 
         private static bool ValidateIfQuestionAlreadyExist(CsvReader dataToValidate)
@@ -40,24 +47,36 @@ namespace QuizGame.Data.Validators
             {
                 return true;
             }
-            else { return false; }
+            else
+            {
+                return false;
+            }
         }
 
         private static bool ValidateIfCorrectAnswerExist(CsvReader dataToValidate)
         {
-
             var correctAnswer = dataToValidate.GetField(5);
             if (correctAnswer.Equals("A") || correctAnswer.Equals("B") || correctAnswer.Equals("C") || correctAnswer.Equals("D"))
             {
                 return true;
             }
-            else return false;
+            else
+            {
+                return false;
+            }
         }
 
         private static bool ValidateNumberOfFields(CsvReader dataToValidate)
         {
-            if (dataToValidate.Parser.Count == 6) return true;
-            else return false;
+            if (dataToValidate.Parser.Count == 6)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
+#pragma warning restore RCS1073

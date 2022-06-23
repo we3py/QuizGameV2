@@ -4,7 +4,7 @@ namespace QuizGame.Logic
 {
     public class QuizManager : IQuizManager
     {
-        private IRepositoryHandler _repositoryHandler;
+        private readonly IRepositoryHandler _repositoryHandler;
         public List<Question> InGameQuestions { get; set; }
         public string[] Answers { get; set; }
         public int Highscore { get; set; }
@@ -12,7 +12,9 @@ namespace QuizGame.Logic
         public int AnswerCount { get; set; }
         public int QuestionNumber { get; set; }
 
+#pragma warning disable CS8618
         public QuizManager(IRepositoryHandler repositoryHandler, int questionNumber)
+#pragma warning restore CS8618
         {
             _repositoryHandler = repositoryHandler;
             QuestionNumber = questionNumber;
@@ -23,8 +25,8 @@ namespace QuizGame.Logic
 
         public void SetUpAnswer(string answer)
         {
-            if (AnswerCount >= InGameQuestions.Count - 1) 
-            { 
+            if (AnswerCount >= InGameQuestions.Count - 1)
+            {
                 IsPlaying = false;
                 return;
             }
@@ -47,7 +49,9 @@ namespace QuizGame.Logic
         public void ClearInGameData()
         {
             InGameQuestions = new List<Question>();
+#pragma warning disable CS8625
             Answers = null;
+#pragma warning restore CS8625
             Highscore = 0;
             AnswerCount = 0;
         }
@@ -61,20 +65,19 @@ namespace QuizGame.Logic
             AnswerCount = 0;
         }
 
-        
         #endregion
 
         #region Private methods
-        private bool CheckAnswer(string correctAnswer, string givenAnswer)
+        private static bool CheckAnswer(string correctAnswer, string givenAnswer)
         {
-            if (givenAnswer.Equals(correctAnswer)) { return true; }
-
-            return false;
+            return givenAnswer.Equals(correctAnswer);
         }
-        
+
         private List<Question> GetRandomQuestions(int questionNumber)
         {
-            Question randomQuestion = new Question();
+#pragma warning disable IDE0059
+            Question randomQuestion = new();
+#pragma warning restore IDE0059
             for (int i = 0; i < questionNumber; i++)
             {
                 randomQuestion = GetRandomQuestion();
@@ -91,13 +94,12 @@ namespace QuizGame.Logic
             return InGameQuestions;
         }
 
-        
         private Question GetRandomQuestion()
         {
             var random = new Random();
             var existingQuestions = _repositoryHandler.GetExistingQuestions();
             return existingQuestions[random.Next(existingQuestions.Count)];
-        }       
+        }
         #endregion
     }
 }

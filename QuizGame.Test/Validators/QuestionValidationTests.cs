@@ -14,7 +14,7 @@ namespace QuizGame.Test.Validators
 
             // Assert
             Assert.Throws<NullReferenceException>(
-            () => QuestionValidation.Validate(null));
+            () => QuestionValidation.Validate(null!));
         }
     }
 }

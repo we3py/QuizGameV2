@@ -1,18 +1,17 @@
 ﻿using QuizGame.Data.DAL;
 using QuizGame.Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuizGame.Data
 {
     public class RepositoryHandler : IRepositoryHandler
     {
-        private QuizGameContext _context;
+#pragma warning disable IDE0052
+        private readonly QuizGameContext _context;
+#pragma warning restore IDE0052
 
+#pragma warning disable CS8618
         public RepositoryHandler()
+#pragma warning restore CS8618
         { }
 
         public RepositoryHandler(QuizGameContext context)
@@ -22,11 +21,9 @@ namespace QuizGame.Data
 
         public void AddQuestion(Question question)
         {
-            using (var repository = new Repository<Question>())
-            {
-                repository.Add(question);
-                repository.Save();
-            };
+            using var repository = new Repository<Question>();
+            repository.Add(question);
+            repository.Save();
         }
 
         public List<Question> GetExistingQuestions()
@@ -37,27 +34,25 @@ namespace QuizGame.Data
 
         public void AddHighscore(string userName, int score)
         {
-            using (var repository = new Repository<Highscore>())
+            using var repository = new Repository<Highscore>();
+            var highscoreToAdd = new Highscore()
             {
-                var highscoreToAdd = new Highscore()
-                {
-                    UserName = userName,
-                    Score = score
-                };
+                UserName = userName,
+                Score = score
+            };
 
-                repository.Add(highscoreToAdd);
-                repository.Save();
-            }
+            repository.Add(highscoreToAdd);
+            repository.Save();
         }
 
         public List<Highscore> GetHighscores()
         {
-            List<Highscore> highscores = new List<Highscore>();
+            List<Highscore> highscores = new();
 
             using (var repository = new Repository<Highscore>())
             {
                 highscores = repository.GetAll().ToList();
-            };
+            }
 
             return highscores;
         }

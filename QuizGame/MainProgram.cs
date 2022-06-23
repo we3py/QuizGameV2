@@ -1,13 +1,9 @@
-using QuizGame.Data;
-using QuizGame.GUI;
-using QuizGame.Logic;
-
 namespace QuizGame
 {
     public partial class MainProgram : Form
     {
-        private IRepositoryHandler _repositoryHandler;
-        private IQuizManager _quizManager;
+        private readonly IRepositoryHandler _repositoryHandler;
+        private readonly IQuizManager _quizManager;
         public MainProgram(IRepositoryHandler repositoryHandler, IQuizManager quizManager)
         {
             _repositoryHandler = repositoryHandler;
@@ -18,12 +14,28 @@ namespace QuizGame
         #region Menu
         private void DrawQuestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            richTextBox1.Visible = true;
+            buttonAnwerA.Visible = true;
+            buttonAnwerB.Visible = true;
+            buttonAnwerC.Visible = true;
+            buttonAnwerD.Visible = true;
             StartQuiz(1);
+            Thread.Sleep(2000);
+            richTextBox1.Visible = false;
+            buttonAnwerA.Visible = false;
+            buttonAnwerB.Visible = false;
+            buttonAnwerC.Visible = false;
+            buttonAnwerD.Visible = false;
         }
 
         private void StartQuizToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StartQuiz(_quizManager.QuestionNumber);
+            richTextBox1.Visible = true;
+            buttonAnwerA.Visible = true;
+            buttonAnwerB.Visible = true;
+            buttonAnwerC.Visible = true;
+            buttonAnwerD.Visible = true;
         }
 
         private void AddQuestionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -32,24 +44,24 @@ namespace QuizGame
             addQuestion.Show();
         }
 
-        private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoadFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var loadFile = new LoadFromFile();
             loadFile.Show();
         }
 
-        private void showAllQuestionsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShowAllQuestionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var listOfQuestions = new ShowListOfQuestions();
             listOfQuestions.Show();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void viewHighscoresToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ViewHighscoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var showHighScores = new ShowHighScoreList();
             showHighScores.Show();
@@ -57,28 +69,28 @@ namespace QuizGame
         #endregion
 
         #region Answer Buttons
-        private void buttonAnwerA_Click(object sender, EventArgs e)
+        private void ButtonAnwerA_Click(object sender, EventArgs e)
         {
             SetAnswerAndGoToNext("A");
             if (!_quizManager.IsPlaying) { return; }
             SetAnswersOnButtons();
         }
 
-        private void buttonAnwerB_Click(object sender, EventArgs e)
+        private void ButtonAnwerB_Click(object sender, EventArgs e)
         {
             SetAnswerAndGoToNext("B");
             if (!_quizManager.IsPlaying) { return; }
             SetAnswersOnButtons();
         }
 
-        private void buttonAnwerC_Click(object sender, EventArgs e)
+        private void ButtonAnwerC_Click(object sender, EventArgs e)
         {
             SetAnswerAndGoToNext("C");
             if (!_quizManager.IsPlaying) { return; }
             SetAnswersOnButtons();
         }
 
-        private void buttonAnwerD_Click(object sender, EventArgs e)
+        private void ButtonAnwerD_Click(object sender, EventArgs e)
         {
             SetAnswerAndGoToNext("D");
             if (!_quizManager.IsPlaying) { return; }
@@ -86,25 +98,19 @@ namespace QuizGame
         }
         #endregion
 
-
-
-        private void buttonEndQuiz_Click(object sender, EventArgs e)
+        #region Buttons
+        private void ButtonEndQuiz_Click(object sender, EventArgs e)
         {
             var addScore = new AddToScoreList(_quizManager, _repositoryHandler, this);
             addScore.Show();
+            richTextBox1.Visible = false;
+            buttonAnwerA.Visible = false;
+            buttonAnwerB.Visible = false;
+            buttonAnwerC.Visible = false;
+            buttonAnwerD.Visible = false;
         }
 
-        /*   private void viewHighscoresToolStripMenuItem_Click(object sender, EventArgs e)
-           {
-               var showHighScores = new ShowHighScoreList();
-               showHighScores.Show();
-           }*/
-
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
 
         #region Private methods
 
@@ -171,9 +177,9 @@ namespace QuizGame
         }
         #endregion
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void PictureBox1_Click(object sender, EventArgs e)
         {
-            Credits credits = new Credits();
+            Credits credits = new();
             credits.Show();
         }
     }
