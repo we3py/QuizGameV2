@@ -15,7 +15,7 @@ namespace QuizGame
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             var repositoryHandler = new RepositoryHandler();
-            var quizManager = new QuizManager(repositoryHandler, 10);
+            var quizManager = new QuizManager(repositoryHandler, 1);
             Application.Run(new MainProgram(repositoryHandler, quizManager));
         }
     }

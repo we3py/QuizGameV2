@@ -19,7 +19,7 @@ namespace QuizGame
         #region Menu
         private void DrawQuestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_quizManager.InGameQuestions.Count > 0)
+            if (_repositoryHandler.GetExistingQuestions().Count() > 0)
             {
             StartQuiz(1);
             richTextBox1.Visible = true;
@@ -39,7 +39,7 @@ namespace QuizGame
 
         private void StartQuizToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_quizManager.InGameQuestions.Count > 0)
+            if (_repositoryHandler.GetExistingQuestions().Count() >= _quizManager.QuestionNumber)
             {
             StartQuiz(_quizManager.QuestionNumber);
             richTextBox1.Visible = true;
