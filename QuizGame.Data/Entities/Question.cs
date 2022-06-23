@@ -1,6 +1,8 @@
 ﻿namespace QuizGame.Data
 {
+#pragma warning disable CS0659
     public class Question
+#pragma warning restore CS0659
     {
         public int QuestionId { get; set; }
 #pragma warning disable CS8618
@@ -22,11 +24,6 @@
             if (obj is not Question question) { return false; }
 
             return QuestionId == question.QuestionId;
-        }
-
-        public override int GetHashCode()
-        {
-            throw new NotImplementedException();
         }
     }
 }

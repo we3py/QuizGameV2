@@ -18,12 +18,28 @@ namespace QuizGame
         #region Menu
         private void DrawQuestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            richTextBox1.Visible = true;
+            buttonAnwerA.Visible = true;
+            buttonAnwerB.Visible = true;
+            buttonAnwerC.Visible = true;
+            buttonAnwerD.Visible = true;
             StartQuiz(1);
+            Thread.Sleep(2000);
+            richTextBox1.Visible = false;
+            buttonAnwerA.Visible = false;
+            buttonAnwerB.Visible = false;
+            buttonAnwerC.Visible = false;
+            buttonAnwerD.Visible = false;
         }
 
         private void StartQuizToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StartQuiz(_quizManager.QuestionNumber);
+            richTextBox1.Visible = true;
+            buttonAnwerA.Visible = true;
+            buttonAnwerB.Visible = true;
+            buttonAnwerC.Visible = true;
+            buttonAnwerD.Visible = true;
         }
 
         private void AddQuestionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,6 +107,11 @@ namespace QuizGame
         {
             var addScore = new AddToScoreList(_quizManager, _repositoryHandler, this);
             addScore.Show();
+            richTextBox1.Visible = false;
+            buttonAnwerA.Visible = false;
+            buttonAnwerB.Visible = false;
+            buttonAnwerC.Visible = false;
+            buttonAnwerD.Visible = false;
         }
 
         #endregion

@@ -134,55 +134,60 @@
             // 
             // buttonAnwerA
             // 
-            this.buttonAnwerA.Location = new System.Drawing.Point(31, 316);
+            this.buttonAnwerA.Location = new System.Drawing.Point(31, 398);
             this.buttonAnwerA.Name = "buttonAnwerA";
             this.buttonAnwerA.Size = new System.Drawing.Size(490, 124);
             this.buttonAnwerA.TabIndex = 1;
             this.buttonAnwerA.Text = "A";
             this.buttonAnwerA.UseVisualStyleBackColor = true;
+            this.buttonAnwerA.Visible = false;
             this.buttonAnwerA.Click += new System.EventHandler(this.ButtonAnwerA_Click);
             // 
             // buttonAnwerB
             // 
-            this.buttonAnwerB.Location = new System.Drawing.Point(531, 316);
+            this.buttonAnwerB.Location = new System.Drawing.Point(531, 398);
             this.buttonAnwerB.Name = "buttonAnwerB";
             this.buttonAnwerB.Size = new System.Drawing.Size(490, 124);
             this.buttonAnwerB.TabIndex = 2;
             this.buttonAnwerB.Text = "B";
             this.buttonAnwerB.UseVisualStyleBackColor = true;
+            this.buttonAnwerB.Visible = false;
             this.buttonAnwerB.Click += new System.EventHandler(this.ButtonAnwerB_Click);
             // 
             // buttonAnwerC
             // 
-            this.buttonAnwerC.Location = new System.Drawing.Point(31, 446);
+            this.buttonAnwerC.Location = new System.Drawing.Point(31, 528);
             this.buttonAnwerC.Name = "buttonAnwerC";
             this.buttonAnwerC.Size = new System.Drawing.Size(490, 124);
             this.buttonAnwerC.TabIndex = 3;
             this.buttonAnwerC.Text = "C";
             this.buttonAnwerC.UseVisualStyleBackColor = true;
+            this.buttonAnwerC.Visible = false;
             this.buttonAnwerC.Click += new System.EventHandler(this.ButtonAnwerC_Click);
             // 
             // buttonAnwerD
             // 
-            this.buttonAnwerD.Location = new System.Drawing.Point(531, 446);
+            this.buttonAnwerD.Location = new System.Drawing.Point(531, 528);
             this.buttonAnwerD.Name = "buttonAnwerD";
             this.buttonAnwerD.Size = new System.Drawing.Size(490, 124);
             this.buttonAnwerD.TabIndex = 4;
             this.buttonAnwerD.Text = "D";
             this.buttonAnwerD.UseVisualStyleBackColor = true;
+            this.buttonAnwerD.Visible = false;
             this.buttonAnwerD.Click += new System.EventHandler(this.ButtonAnwerD_Click);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(31, 58);
+            this.richTextBox1.Location = new System.Drawing.Point(31, 140);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(990, 230);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
+            this.richTextBox1.Visible = false;
             // 
             // buttonEndQuiz
             // 
-            this.buttonEndQuiz.Location = new System.Drawing.Point(928, 596);
+            this.buttonEndQuiz.Location = new System.Drawing.Point(928, 678);
             this.buttonEndQuiz.Name = "buttonEndQuiz";
             this.buttonEndQuiz.Size = new System.Drawing.Size(93, 30);
             this.buttonEndQuiz.TabIndex = 6;
@@ -195,7 +200,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(876, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(845, 52);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(176, 61);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -207,7 +212,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 646);
+            this.ClientSize = new System.Drawing.Size(1052, 734);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonEndQuiz);
             this.Controls.Add(this.richTextBox1);
