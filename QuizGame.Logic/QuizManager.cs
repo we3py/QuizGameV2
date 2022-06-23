@@ -54,6 +54,7 @@ namespace QuizGame.Logic
 
         public void SetUpInGameData(int questionNumber)
         {
+            ClearInGameData();
             InGameQuestions = GetRandomQuestions(questionNumber);
             Answers = new string[InGameQuestions.Count - 1];
             Highscore = 0;

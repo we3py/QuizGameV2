@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainProgram));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.playToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DrawQuestionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +45,9 @@
             this.buttonAnwerD = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.buttonEndQuiz = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -176,7 +179,6 @@
             this.richTextBox1.Size = new System.Drawing.Size(990, 230);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // buttonEndQuiz
             // 
@@ -189,11 +191,24 @@
             this.buttonEndQuiz.Visible = false;
             this.buttonEndQuiz.Click += new System.EventHandler(this.buttonEndQuiz_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(876, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(176, 61);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // MainProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1052, 646);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonEndQuiz);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.buttonAnwerD);
@@ -206,6 +221,7 @@
             this.Text = "Quiz Game from The Riddlers";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,5 +245,6 @@
         private RichTextBox richTextBox1;
         private Button buttonEndQuiz;
         private ToolStripMenuItem viewHighscoresToolStripMenuItem;
+        private PictureBox pictureBox1;
     }
 }
