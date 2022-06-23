@@ -25,22 +25,20 @@ namespace QuizGame.Logic
 
         public void SetUpAnswer(string answer)
         {
-            if (AnswerCount > InGameQuestions.Count - 1) 
-            { 
+            if (AnswerCount > InGameQuestions.Count - 1)
+            {
                 IsPlaying = false;
                 return;
             }
 
-            
             Answers[AnswerCount] = answer;
             AnswerCount++;
 
-            if (AnswerCount == InGameQuestions.Count) 
-            { 
+            if (AnswerCount == InGameQuestions.Count)
+            {
                 IsPlaying = false;
                 AnswerCount--;
             }
-            
         }
 
         public void CalculateHighscore()

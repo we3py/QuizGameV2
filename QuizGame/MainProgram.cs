@@ -9,6 +9,8 @@ namespace QuizGame
         private readonly IRepositoryHandler _repositoryHandler;
         private readonly IQuizManager _quizManager;
         private readonly List<Button> _answerButtons = new();
+        private readonly int _oneQuestion = 1;
+        private int _questionAmmount;
         public MainProgram(IRepositoryHandler repositoryHandler, IQuizManager quizManager)
         {
             _repositoryHandler = repositoryHandler;
@@ -21,12 +23,9 @@ namespace QuizGame
         {
             if (_repositoryHandler.GetExistingQuestions().Count > 0)
             {
-                StartQuiz(1);
-                richTextBox1.Visible = true;
-                buttonAnwerA.Visible = true;
-                buttonAnwerB.Visible = true;
-                buttonAnwerC.Visible = true;
-                buttonAnwerD.Visible = true;
+                _questionAmmount = _oneQuestion;
+                StartQuiz(_questionAmmount);
+                ShowQuizLayout();
             }
             else
             {
@@ -34,16 +33,14 @@ namespace QuizGame
             }
         }
 
+
         private void StartQuizToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_repositoryHandler.GetExistingQuestions().Count >= _quizManager.QuestionNumber)
             {
-                StartQuiz(_quizManager.QuestionNumber);
-                richTextBox1.Visible = true;
-                buttonAnwerA.Visible = true;
-                buttonAnwerB.Visible = true;
-                buttonAnwerC.Visible = true;
-                buttonAnwerD.Visible = true;
+                _questionAmmount = _quizManager.QuestionNumber;
+                StartQuiz(_questionAmmount);
+                ShowQuizLayout();
             }
             else
             {
@@ -84,9 +81,9 @@ namespace QuizGame
         #region Answer Buttons
         private void ButtonAnwerA_Click(object sender, EventArgs e)
         {
-            if(!_quizManager.IsPlaying)
+            if (!_quizManager.IsPlaying)
             {
-                MessageBox.Show("You finished your quiz");
+                ShowMessage();
                 return;
             }
             SetAnswerAndGoToNext("A");
@@ -99,7 +96,7 @@ namespace QuizGame
         {
             if (!_quizManager.IsPlaying)
             {
-                MessageBox.Show("You finished your quiz");
+                ShowMessage();
                 return;
             }
             SetAnswerAndGoToNext("B");
@@ -112,7 +109,7 @@ namespace QuizGame
         {
             if (!_quizManager.IsPlaying)
             {
-                MessageBox.Show("You finished your quiz");
+                ShowMessage();
                 return;
             }
             SetAnswerAndGoToNext("C");
@@ -125,13 +122,17 @@ namespace QuizGame
         {
             if (!_quizManager.IsPlaying)
             {
-                MessageBox.Show("You finished your quiz");
+                ShowMessage();
                 return;
             }
             SetAnswerAndGoToNext("D");
             ShowAnswerResult(buttonAnwerD);
             SetAnswersOnButtons();
             SetButtonsColorToDefault();
+        }
+        private void ShowMessage()
+        {
+            MessageBox.Show("You finished your quiz.\nClick End Quiz to show your score!");
         }
         #endregion
 
@@ -140,12 +141,7 @@ namespace QuizGame
         {
             var addScore = new AddToScoreList(_quizManager, _repositoryHandler, this);
             addScore.Show();
-            richTextBox1.Visible = false;
-            buttonAnwerA.Visible = false;
-            buttonAnwerB.Visible = false;
-            buttonAnwerC.Visible = false;
-            buttonAnwerD.Visible = false;
-            buttonEndQuiz.Visible = false;
+            HideQuizLayout();
         }
 
         #endregion
@@ -185,19 +181,19 @@ namespace QuizGame
         {
             _answerButtons.Clear();
 
-            buttonAnwerA.Text = "A: " + _quizManager
+            buttonAnwerA.Text = "A:\n" + _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
                 .AnswerA;
 
-            buttonAnwerB.Text = "B: " + _quizManager
+            buttonAnwerB.Text = "B:\n " + _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
                 .AnswerB;
 
-            buttonAnwerC.Text = "C: " + _quizManager
+            buttonAnwerC.Text = "C:\n" + _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
                 .AnswerC;
 
-            buttonAnwerD.Text = "D: " + _quizManager
+            buttonAnwerD.Text = "D:\n" + _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
                 .AnswerD;
 
@@ -216,11 +212,6 @@ namespace QuizGame
 
             richTextBox1.Text = String.Empty;
             buttonEndQuiz.Visible = false;
-            richTextBox1.Visible = false;
-            buttonAnwerA.Visible = false;
-            buttonAnwerB.Visible = false;
-            buttonAnwerC.Visible = false;
-            buttonAnwerD.Visible = false;
         }
 
         private void ShowAnswerResult(Button pressedButton)
@@ -247,7 +238,13 @@ namespace QuizGame
         {
             Thread.Sleep(1000);
             foreach (var button in _answerButtons) { button.UseVisualStyleBackColor = true; }
+            if (_questionAmmount == 1)
+            {
+                Thread.Sleep(2000);
+                HideQuizLayout();
+            }
         }
+
 
         private bool IsButtonAnswerCorrect(Button button)
         {
@@ -266,6 +263,23 @@ namespace QuizGame
         {
             Credits credits = new();
             credits.Show();
+        }
+        private void ShowQuizLayout()
+        {
+            richTextBox1.Visible = true;
+            buttonAnwerA.Visible = true;
+            buttonAnwerB.Visible = true;
+            buttonAnwerC.Visible = true;
+            buttonAnwerD.Visible = true;
+        }
+        private void HideQuizLayout()
+        {
+            buttonEndQuiz.Visible = false;
+            richTextBox1.Visible = false;
+            buttonAnwerA.Visible = false;
+            buttonAnwerB.Visible = false;
+            buttonAnwerC.Visible = false;
+            buttonAnwerD.Visible = false;
         }
     }
 }
