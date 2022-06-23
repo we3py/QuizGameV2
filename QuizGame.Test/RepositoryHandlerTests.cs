@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QuizGame.Data;
 using Moq;
-using QuizGame.Data.DAL;
-using NSubstitute;
 
 namespace QuizGame.Test
 {

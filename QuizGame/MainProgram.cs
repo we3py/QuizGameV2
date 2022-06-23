@@ -33,7 +33,6 @@ namespace QuizGame
             }
         }
 
-
         private void StartQuizToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_repositoryHandler.GetExistingQuestions().Count >= _quizManager.QuestionNumber)
@@ -130,7 +129,7 @@ namespace QuizGame
             SetAnswersOnButtons();
             SetButtonsColorToDefault();
         }
-        private void ShowMessage()
+        private static void ShowMessage()
         {
             MessageBox.Show("You finished your quiz.\nClick End Quiz to show your score!");
         }
@@ -244,7 +243,6 @@ namespace QuizGame
                 HideQuizLayout();
             }
         }
-
 
         private bool IsButtonAnswerCorrect(Button button)
         {
