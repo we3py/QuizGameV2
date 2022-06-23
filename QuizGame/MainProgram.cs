@@ -8,7 +8,7 @@ namespace QuizGame
     {
         private readonly IRepositoryHandler _repositoryHandler;
         private readonly IQuizManager _quizManager;
-        private List<Button> _answerButtons = new List<Button>();
+        private readonly List<Button> _answerButtons = new();
         public MainProgram(IRepositoryHandler repositoryHandler, IQuizManager quizManager)
         {
             _repositoryHandler = repositoryHandler;
@@ -19,7 +19,7 @@ namespace QuizGame
         #region Menu
         private void DrawQuestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_repositoryHandler.GetExistingQuestions().Count() > 0)
+            if (_repositoryHandler.GetExistingQuestions().Count > 0)
             {
                 StartQuiz(1);
                 richTextBox1.Visible = true;
@@ -36,7 +36,7 @@ namespace QuizGame
 
         private void StartQuizToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_repositoryHandler.GetExistingQuestions().Count() >= _quizManager.QuestionNumber)
+            if (_repositoryHandler.GetExistingQuestions().Count >= _quizManager.QuestionNumber)
             {
                 StartQuiz(_quizManager.QuestionNumber);
                 richTextBox1.Visible = true;
@@ -145,6 +145,7 @@ namespace QuizGame
             buttonAnwerB.Visible = false;
             buttonAnwerC.Visible = false;
             buttonAnwerD.Visible = false;
+            buttonEndQuiz.Visible = false;
         }
 
         #endregion
