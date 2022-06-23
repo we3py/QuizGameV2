@@ -24,7 +24,7 @@ namespace QuizGame.Test.Factories
             string[] answers = { "AA", "AB", "AC", "AD" };
 
             // Act
-            var result = factory.GetNew(null, correctAnswer, answers);
+            var result = factory.GetNew(null!, correctAnswer, answers);
 
             // Assert
             Assert.That(result, Is.Not.Null);
@@ -67,7 +67,7 @@ namespace QuizGame.Test.Factories
             string[] answers = { "AA", "AB", "AC", "AD" };
 
             // Act
-            var result = factory.GetNew(query, null, answers);
+            var result = factory.GetNew(query, null!, answers);
 
             // Assert
             Assert.That(result, Is.Not.Null);
