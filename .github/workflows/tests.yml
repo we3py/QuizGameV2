@@ -37,6 +37,10 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v1.0.2
 
+    # Install mock
+    - name: Install mockgen
+      run: go install github.com/golang/mock/mockgen
+      
     # Execute all unit tests in the solution
     - name: Execute unit tests
       run: dotnet test
