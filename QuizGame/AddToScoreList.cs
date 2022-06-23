@@ -39,7 +39,6 @@ namespace QuizGame.GUI
             if (textBoxUserName.Text != string.Empty)
             {
                 _repositoryHandler.AddHighscore(textBoxUserName.Text, _quizManager.Highscore);
-                _quizManager.ClearInGameData();              
                 this.Close();
             }
             else
