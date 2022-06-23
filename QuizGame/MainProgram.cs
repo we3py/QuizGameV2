@@ -22,13 +22,10 @@ namespace QuizGame
 
         private void StartQuizToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _quizManager.SetUpInGameData(_quizManager.QuestionNumber);
-            richTextBox1.Text = _quizManager
-                .InGameQuestions[_quizManager.AnswerCount]
-                .ToString();
-            SetAnswersOnButtons();
-            _quizManager.IsPlaying = true;
+            StartQuiz();
         }
+
+        
 
         private void AddQuestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -78,6 +75,38 @@ namespace QuizGame
             SetAnswerAndGoToNext("D");
         }
 
+        
+
+        private void buttonEndQuiz_Click(object sender, EventArgs e)
+        {
+            var addScore = new AddToScoreList(_quizManager, _repositoryHandler, this);
+            addScore.Show();
+        }
+
+        private void viewHighscoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var showHighScores = new ShowHighScoreList();
+            showHighScores.Show();
+        }
+
+        
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        #region Private methods
+
+        private void StartQuiz()
+        {
+            _quizManager.SetUpInGameData(_quizManager.QuestionNumber);
+            richTextBox1.Text = _quizManager
+                .InGameQuestions[_quizManager.AnswerCount]
+                .ToString();
+            SetAnswersOnButtons();
+            _quizManager.IsPlaying = true;
+        }
+
         private void SetAnswerAndGoToNext(string answer)
         {
             if (!_quizManager.IsPlaying)
@@ -122,23 +151,6 @@ namespace QuizGame
             richTextBox1.Text = String.Empty;
             buttonEndQuiz.Visible = false;
         }
-
-        private void buttonEndQuiz_Click(object sender, EventArgs e)
-        {
-            var addScore = new AddToScoreList(_quizManager, _repositoryHandler, this);
-            addScore.Show();
-        }
-
-        private void viewHighscoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var showHighScores = new ShowHighScoreList();
-            showHighScores.Show();
-        }
-
-        
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+        #endregion
     }
 }
