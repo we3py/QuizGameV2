@@ -109,28 +109,28 @@
             this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
             this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.loadFileToolStripMenuItem.Text = "Load file";
-            this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.loadFileToolStripMenuItem_Click);
+            this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.LoadFileToolStripMenuItem_Click);
             // 
             // showAllQuestionsToolStripMenuItem
             // 
             this.showAllQuestionsToolStripMenuItem.Name = "showAllQuestionsToolStripMenuItem";
             this.showAllQuestionsToolStripMenuItem.Size = new System.Drawing.Size(215, 26);
             this.showAllQuestionsToolStripMenuItem.Text = "Show all questions";
-            this.showAllQuestionsToolStripMenuItem.Click += new System.EventHandler(this.showAllQuestionsToolStripMenuItem_Click);
+            this.showAllQuestionsToolStripMenuItem.Click += new System.EventHandler(this.ShowAllQuestionsToolStripMenuItem_Click);
             // 
             // viewHighscoresToolStripMenuItem
             // 
             this.viewHighscoresToolStripMenuItem.Name = "viewHighscoresToolStripMenuItem";
             this.viewHighscoresToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
             this.viewHighscoresToolStripMenuItem.Text = "View highscores";
-            this.viewHighscoresToolStripMenuItem.Click += new System.EventHandler(this.viewHighscoresToolStripMenuItem_Click);
+            this.viewHighscoresToolStripMenuItem.Click += new System.EventHandler(this.ViewHighscoresToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(47, 24);
             this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
             // buttonAnwerA
             // 
@@ -140,7 +140,7 @@
             this.buttonAnwerA.TabIndex = 1;
             this.buttonAnwerA.Text = "A";
             this.buttonAnwerA.UseVisualStyleBackColor = true;
-            this.buttonAnwerA.Click += new System.EventHandler(this.buttonAnwerA_Click);
+            this.buttonAnwerA.Click += new System.EventHandler(this.ButtonAnwerA_Click);
             // 
             // buttonAnwerB
             // 
@@ -150,7 +150,7 @@
             this.buttonAnwerB.TabIndex = 2;
             this.buttonAnwerB.Text = "B";
             this.buttonAnwerB.UseVisualStyleBackColor = true;
-            this.buttonAnwerB.Click += new System.EventHandler(this.buttonAnwerB_Click);
+            this.buttonAnwerB.Click += new System.EventHandler(this.ButtonAnwerB_Click);
             // 
             // buttonAnwerC
             // 
@@ -160,7 +160,7 @@
             this.buttonAnwerC.TabIndex = 3;
             this.buttonAnwerC.Text = "C";
             this.buttonAnwerC.UseVisualStyleBackColor = true;
-            this.buttonAnwerC.Click += new System.EventHandler(this.buttonAnwerC_Click);
+            this.buttonAnwerC.Click += new System.EventHandler(this.ButtonAnwerC_Click);
             // 
             // buttonAnwerD
             // 
@@ -170,7 +170,7 @@
             this.buttonAnwerD.TabIndex = 4;
             this.buttonAnwerD.Text = "D";
             this.buttonAnwerD.UseVisualStyleBackColor = true;
-            this.buttonAnwerD.Click += new System.EventHandler(this.buttonAnwerD_Click);
+            this.buttonAnwerD.Click += new System.EventHandler(this.ButtonAnwerD_Click);
             // 
             // richTextBox1
             // 
@@ -189,7 +189,7 @@
             this.buttonEndQuiz.Text = "End quiz";
             this.buttonEndQuiz.UseVisualStyleBackColor = true;
             this.buttonEndQuiz.Visible = false;
-            this.buttonEndQuiz.Click += new System.EventHandler(this.buttonEndQuiz_Click);
+            this.buttonEndQuiz.Click += new System.EventHandler(this.ButtonEndQuiz_Click);
             // 
             // pictureBox1
             // 
@@ -201,7 +201,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // MainProgram
             // 

@@ -43,7 +43,7 @@
             this.listBoxQuestions.Name = "listBoxQuestions";
             this.listBoxQuestions.Size = new System.Drawing.Size(381, 384);
             this.listBoxQuestions.TabIndex = 0;
-            this.listBoxQuestions.SelectedIndexChanged += new System.EventHandler(this.listBoxQuestions_SelectedIndexChanged);
+            this.listBoxQuestions.SelectedIndexChanged += new System.EventHandler(this.ListBoxQuestions_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -78,7 +78,7 @@
             this.buttonClose.TabIndex = 4;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = true;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+            this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
             // ShowListOfQuestions
             // 

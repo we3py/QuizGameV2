@@ -54,7 +54,6 @@
             this.labelScore.Size = new System.Drawing.Size(17, 20);
             this.labelScore.TabIndex = 1;
             this.labelScore.Text = "0";
-            this.labelScore.Click += new System.EventHandler(this.labelScore_Click);
             // 
             // label3
             // 
@@ -80,7 +79,7 @@
             this.buttonAddScore.TabIndex = 4;
             this.buttonAddScore.Text = "Save score";
             this.buttonAddScore.UseVisualStyleBackColor = true;
-            this.buttonAddScore.Click += new System.EventHandler(this.buttonAddScore_Click);
+            this.buttonAddScore.Click += new System.EventHandler(this.ButtonAddScore_Click);
             // 
             // labelEmptyName
             // 

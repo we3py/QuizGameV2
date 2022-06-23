@@ -6,8 +6,8 @@ namespace QuizGame
 {
     public partial class MainProgram : Form
     {
-        private IRepositoryHandler _repositoryHandler;
-        private IQuizManager _quizManager;
+        private readonly IRepositoryHandler _repositoryHandler;
+        private readonly IQuizManager _quizManager;
         public MainProgram(IRepositoryHandler repositoryHandler, IQuizManager quizManager)
         {
             _repositoryHandler = repositoryHandler;
@@ -32,24 +32,24 @@ namespace QuizGame
             addQuestion.Show();
         }
 
-        private void loadFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LoadFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var loadFile = new LoadFromFile();
             loadFile.Show();
         }
 
-        private void showAllQuestionsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShowAllQuestionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var listOfQuestions = new ShowListOfQuestions();
             listOfQuestions.Show();
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void viewHighscoresToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ViewHighscoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var showHighScores = new ShowHighScoreList();
             showHighScores.Show();
@@ -57,28 +57,28 @@ namespace QuizGame
         #endregion
 
         #region Answer Buttons
-        private void buttonAnwerA_Click(object sender, EventArgs e)
+        private void ButtonAnwerA_Click(object sender, EventArgs e)
         {
             SetAnswerAndGoToNext("A");
             if (!_quizManager.IsPlaying) { return; }
             SetAnswersOnButtons();
         }
 
-        private void buttonAnwerB_Click(object sender, EventArgs e)
+        private void ButtonAnwerB_Click(object sender, EventArgs e)
         {
             SetAnswerAndGoToNext("B");
             if (!_quizManager.IsPlaying) { return; }
             SetAnswersOnButtons();
         }
 
-        private void buttonAnwerC_Click(object sender, EventArgs e)
+        private void ButtonAnwerC_Click(object sender, EventArgs e)
         {
             SetAnswerAndGoToNext("C");
             if (!_quizManager.IsPlaying) { return; }
             SetAnswersOnButtons();
         }
 
-        private void buttonAnwerD_Click(object sender, EventArgs e)
+        private void ButtonAnwerD_Click(object sender, EventArgs e)
         {
             SetAnswerAndGoToNext("D");
             if (!_quizManager.IsPlaying) { return; }
@@ -87,14 +87,14 @@ namespace QuizGame
         #endregion
 
         #region Buttons
-        private void buttonEndQuiz_Click(object sender, EventArgs e)
+        private void ButtonEndQuiz_Click(object sender, EventArgs e)
         {
             var addScore = new AddToScoreList(_quizManager, _repositoryHandler, this);
             addScore.Show();
         }
 
         #endregion
-       
+
         #region Private methods
 
         private void StartQuiz(int questionNumber)
@@ -116,9 +116,9 @@ namespace QuizGame
 
             if (!_quizManager.IsPlaying)
             {
-                if(_quizManager.InGameQuestions.Count == 1)
-                {                    
-                    MessageBox.Show("Correct answer is: " + _quizManager.InGameQuestions[0].CorrectAnswer);                    
+                if (_quizManager.InGameQuestions.Count == 1)
+                {
+                    MessageBox.Show("Correct answer is: " + _quizManager.InGameQuestions[0].CorrectAnswer);
                     SetDefaultValuesInMainProgram();
                     return;
                 }
@@ -126,7 +126,7 @@ namespace QuizGame
                 buttonEndQuiz.Visible = true;
                 MessageBox.Show("No more questions. Press End Quiz button");
                 return;
-            }          
+            }
         }
 
         private void SetAnswersOnButtons()
@@ -145,7 +145,7 @@ namespace QuizGame
 
             buttonAnwerD.Text = _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
-                .AnswerD;           
+                .AnswerD;
         }
 
         public void SetDefaultValuesInMainProgram()
@@ -160,9 +160,9 @@ namespace QuizGame
         }
         #endregion
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void PictureBox1_Click(object sender, EventArgs e)
         {
-            Credits credits = new Credits();
+            Credits credits = new();
             credits.Show();
         }
     }

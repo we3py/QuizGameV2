@@ -1,13 +1,4 @@
 ﻿using QuizGame.Data;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuizGame.GUI
 {
@@ -18,15 +9,17 @@ namespace QuizGame.GUI
             InitializeComponent();
             RepositoryHandler repository = new();
             var highScoreList = repository.GetHighscores();
-            BindingSource bindingSource = new();
-            bindingSource.DataSource = highScoreList;
+            BindingSource bindingSource = new()
+            {
+                DataSource = highScoreList
+            };
             listBoxHighScores.DataSource = bindingSource;
             listBoxScores.DataSource = bindingSource;
             listBoxHighScores.DisplayMember = "UserName";
             listBoxScores.DisplayMember = "Score";
         }
 
-        private void buttonClose_Click(object sender, EventArgs e)
+        private void ButtonClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -7,21 +7,20 @@ namespace QuizGame.GUI
         public LoadFromFile()
         {
             InitializeComponent();
-
         }
 
-        private void buttonChooseFile_Click(object sender, EventArgs e)
+        private void ButtonChooseFile_Click(object sender, EventArgs e)
         {
-            var file = openFileDialogChooseFile.ShowDialog();
+            openFileDialogChooseFile.ShowDialog();
             labelFileName.Text = openFileDialogChooseFile.FileName;
         }
 
-        private void buttonLoadData_Click(object sender, EventArgs e)
+        private void ButtonLoadData_Click(object sender, EventArgs e)
         {
             LoadFile();
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -30,7 +29,6 @@ namespace QuizGame.GUI
         {
             if (openFileDialogChooseFile.FileName != String.Empty)
             {
-
                 var questionToLoad = new ImportQuestionFromCsv().Import(openFileDialogChooseFile.FileName);
                 new LoadQuestion().Load(questionToLoad);
                 this.Close();

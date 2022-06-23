@@ -1,23 +1,13 @@
 ﻿using QuizGame.Data;
-using QuizGame.Data.Factories;
 using QuizGame.Logic;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuizGame.GUI
 {
     public partial class AddToScoreList : Form
     {
-        private IQuizManager _quizManager;
-        private IRepositoryHandler _repositoryHandler;
-        private MainProgram _mainProgram;
+        private readonly IQuizManager _quizManager;
+        private readonly IRepositoryHandler _repositoryHandler;
+        private readonly MainProgram _mainProgram;
         public AddToScoreList(IQuizManager quizManager, IRepositoryHandler repositoryHandler, MainProgram mainProgram)
         {
             _quizManager = quizManager;
@@ -28,7 +18,7 @@ namespace QuizGame.GUI
             labelScore.Text = _quizManager.Highscore.ToString();
         }
 
-        private void buttonAddScore_Click(object sender, EventArgs e)
+        private void ButtonAddScore_Click(object sender, EventArgs e)
         {
             AddToHighScoreList();
             _mainProgram.SetDefaultValuesInMainProgram();
@@ -43,7 +33,7 @@ namespace QuizGame.GUI
             }
             else
             {
-                if (textBoxUserName.Text == string.Empty)
+                if (textBoxUserName.Text?.Length == 0)
                 {
                     this.labelEmptyName.Text = "Empty Name";
                     labelEmptyName.Update();
@@ -51,11 +41,6 @@ namespace QuizGame.GUI
                     this.labelEmptyName.Text = string.Empty;
                 }
             }
-        }
-
-        private void labelScore_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -1,14 +1,4 @@
 ﻿using QuizGame.Data;
-using QuizGame.Data.DAL;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace QuizGame.GUI
 {
@@ -19,19 +9,21 @@ namespace QuizGame.GUI
             InitializeComponent();
             RepositoryHandler repository = new();
             var questionList = repository.GetExistingQuestions();
-            BindingSource bindingSource = new();
-            bindingSource.DataSource = questionList;
+            BindingSource bindingSource = new()
+            {
+                DataSource = questionList
+            };
             listBoxQuestions.DataSource = bindingSource;
             listBoxQuestions.DisplayMember = "Query";
             textBoxAnswer.Text = "Choose question";
         }
 
-        private void buttonClose_Click(object sender, EventArgs e)
+        private void ButtonClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void listBoxQuestions_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListBoxQuestions_SelectedIndexChanged(object sender, EventArgs e)
         {
             string answer = string.Empty;
             if( ((Question)listBoxQuestions.SelectedItem).CorrectAnswer =="A")
