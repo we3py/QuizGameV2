@@ -15,17 +15,16 @@ namespace QuizGame
             InitializeComponent();
         }
 
+        #region Menu
         private void DrawQuestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            StartQuiz(1);
         }
 
         private void StartQuizToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StartQuiz();
+            StartQuiz(_quizManager.QuestionNumber);
         }
-
-
 
         private void AddQuestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -50,56 +49,57 @@ namespace QuizGame
             this.Close();
         }
 
+        private void viewHighscoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var showHighScores = new ShowHighScoreList();
+            showHighScores.Show();
+        }
+        #endregion
 
+        #region Answer Buttons
         private void buttonAnwerA_Click(object sender, EventArgs e)
         {
-            SetAnswersOnButtons();
             SetAnswerAndGoToNext("A");
+            if (!_quizManager.IsPlaying) { return; }
+            SetAnswersOnButtons();
         }
 
         private void buttonAnwerB_Click(object sender, EventArgs e)
         {
-            SetAnswersOnButtons();
             SetAnswerAndGoToNext("B");
+            if (!_quizManager.IsPlaying) { return; }
+            SetAnswersOnButtons();
         }
 
         private void buttonAnwerC_Click(object sender, EventArgs e)
         {
-            SetAnswersOnButtons();
             SetAnswerAndGoToNext("C");
+            if (!_quizManager.IsPlaying) { return; }
+            SetAnswersOnButtons();
         }
 
         private void buttonAnwerD_Click(object sender, EventArgs e)
         {
-            SetAnswersOnButtons();
             SetAnswerAndGoToNext("D");
+            if (!_quizManager.IsPlaying) { return; }
+            SetAnswersOnButtons();
         }
+        #endregion
 
-
-
+        #region Buttons
         private void buttonEndQuiz_Click(object sender, EventArgs e)
         {
             var addScore = new AddToScoreList(_quizManager, _repositoryHandler, this);
             addScore.Show();
         }
 
-        private void viewHighscoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var showHighScores = new ShowHighScoreList();
-            showHighScores.Show();
-        }
-
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        #endregion
+       
         #region Private methods
 
-        private void StartQuiz()
+        private void StartQuiz(int questionNumber)
         {
-            _quizManager.SetUpInGameData(_quizManager.QuestionNumber);
+            _quizManager.SetUpInGameData(questionNumber);
             richTextBox1.Text = _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
                 .ToString();
@@ -109,17 +109,24 @@ namespace QuizGame
 
         private void SetAnswerAndGoToNext(string answer)
         {
-            if (!_quizManager.IsPlaying)
-            {
-                buttonEndQuiz.Visible = true;
-                MessageBox.Show("No more questions. Press End Quiz button");
-                return;
-            }
-
             _quizManager.SetUpAnswer(answer);
             richTextBox1.Text = _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
                 .ToString();
+
+            if (!_quizManager.IsPlaying)
+            {
+                if(_quizManager.InGameQuestions.Count == 1)
+                {                    
+                    MessageBox.Show("Correct answer is: " + _quizManager.InGameQuestions[0].CorrectAnswer);                    
+                    SetDefaultValuesInMainProgram();
+                    return;
+                }
+
+                buttonEndQuiz.Visible = true;
+                MessageBox.Show("No more questions. Press End Quiz button");
+                return;
+            }          
         }
 
         private void SetAnswersOnButtons()
@@ -138,7 +145,7 @@ namespace QuizGame
 
             buttonAnwerD.Text = _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
-                .AnswerD;
+                .AnswerD;           
         }
 
         public void SetDefaultValuesInMainProgram()
