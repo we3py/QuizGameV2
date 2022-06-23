@@ -8,6 +8,7 @@ namespace QuizGame
     {
         private IRepositoryHandler _repositoryHandler;
         private IQuizManager _quizManager;
+        private List<Button> _answerButtons = new List<Button>();
         public MainProgram(IRepositoryHandler repositoryHandler, IQuizManager quizManager)
         {
             _repositoryHandler = repositoryHandler;
@@ -62,6 +63,7 @@ namespace QuizGame
             SetAnswerAndGoToNext("A");
             if (!_quizManager.IsPlaying) { return; }
             SetAnswersOnButtons();
+            SetButtonsColorToDefault();
         }
 
         private void buttonAnwerB_Click(object sender, EventArgs e)
@@ -69,6 +71,8 @@ namespace QuizGame
             SetAnswerAndGoToNext("B");
             if (!_quizManager.IsPlaying) { return; }
             SetAnswersOnButtons();
+            ShowAnswerResult(buttonAnwerB);
+            SetButtonsColorToDefault();
         }
 
         private void buttonAnwerC_Click(object sender, EventArgs e)
@@ -76,6 +80,8 @@ namespace QuizGame
             SetAnswerAndGoToNext("C");
             if (!_quizManager.IsPlaying) { return; }
             SetAnswersOnButtons();
+            ShowAnswerResult(buttonAnwerC);
+            SetButtonsColorToDefault();
         }
 
         private void buttonAnwerD_Click(object sender, EventArgs e)
@@ -83,6 +89,8 @@ namespace QuizGame
             SetAnswerAndGoToNext("D");
             if (!_quizManager.IsPlaying) { return; }
             SetAnswersOnButtons();
+            ShowAnswerResult(buttonAnwerD);
+            SetButtonsColorToDefault();
         }
         #endregion
 
@@ -131,21 +139,28 @@ namespace QuizGame
 
         private void SetAnswersOnButtons()
         {
-            buttonAnwerA.Text = _quizManager
+            _answerButtons.Clear();
+
+            buttonAnwerA.Text = "A: " + _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
                 .AnswerA;
 
-            buttonAnwerB.Text = _quizManager
+            buttonAnwerB.Text = "B: " + _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
                 .AnswerB;
 
-            buttonAnwerC.Text = _quizManager
+            buttonAnwerC.Text = "C: " + _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
                 .AnswerC;
 
-            buttonAnwerD.Text = _quizManager
+            buttonAnwerD.Text = "D: " + _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
-                .AnswerD;           
+                .AnswerD;
+
+            _answerButtons.Add(buttonAnwerA);
+            _answerButtons.Add(buttonAnwerB);
+            _answerButtons.Add(buttonAnwerC);
+            _answerButtons.Add(buttonAnwerD);
         }
 
         public void SetDefaultValuesInMainProgram()
@@ -157,6 +172,36 @@ namespace QuizGame
 
             richTextBox1.Text = String.Empty;
             buttonEndQuiz.Visible = false;
+        }
+
+        private void ShowAnswerResult(Button pressedButton)
+        {
+            bool condition = IsButtonAnswerCorrect(pressedButton);
+
+            if (condition)
+            {
+                pressedButton.BackColor = Color.Green;
+            }
+            else
+            {
+                pressedButton.BackColor = Color.Red;
+                foreach (var button in _answerButtons)
+                {
+                    if (IsButtonAnswerCorrect(button)) { button.BackColor = Color.Green; }
+                }
+            }
+        }
+
+        private void SetButtonsColorToDefault()
+        {
+            Thread.Sleep(1000);
+            foreach (var button in _answerButtons) { button.UseVisualStyleBackColor = true; }
+        }
+
+        private bool IsButtonAnswerCorrect(Button button)
+        {
+            return button.Text[0].ToString()
+                == _quizManager.InGameQuestions[_quizManager.AnswerCount].CorrectAnswer;
         }
         #endregion
 
