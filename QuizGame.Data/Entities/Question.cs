@@ -10,5 +10,18 @@
         public string AnswerD { get; set; }
         public string CorrectAnswer { get; set; }
 
+        public override string ToString()
+        {
+            return Query;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            var question = obj as Question;
+            if (question == null) { return false; }
+
+            return this.QuestionId == question.QuestionId ? true : false;
+        }
+
     }
 }
