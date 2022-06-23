@@ -76,14 +76,14 @@
             // DrawQuestionToolStripMenuItem
             // 
             this.DrawQuestionToolStripMenuItem.Name = "DrawQuestionToolStripMenuItem";
-            this.DrawQuestionToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.DrawQuestionToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.DrawQuestionToolStripMenuItem.Text = "Draw question";
             this.DrawQuestionToolStripMenuItem.Click += new System.EventHandler(this.DrawQuestionToolStripMenuItem_Click);
             // 
             // StartQuizToolStripMenuItem
             // 
             this.StartQuizToolStripMenuItem.Name = "StartQuizToolStripMenuItem";
-            this.StartQuizToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.StartQuizToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.StartQuizToolStripMenuItem.Text = "Start quiz";
             this.StartQuizToolStripMenuItem.Click += new System.EventHandler(this.StartQuizToolStripMenuItem_Click);
             // 
@@ -221,6 +221,7 @@
             this.Controls.Add(this.buttonAnwerB);
             this.Controls.Add(this.buttonAnwerA);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainProgram";
             this.Text = "Quiz Game from The Riddlers";
