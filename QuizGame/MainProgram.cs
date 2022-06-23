@@ -11,7 +11,7 @@ namespace QuizGame
         public MainProgram(IRepositoryHandler repositoryHandler, IQuizManager quizManager)
         {
             _repositoryHandler = repositoryHandler;
-            _quizManager = quizManager; 
+            _quizManager = quizManager;
             InitializeComponent();
         }
 
@@ -25,7 +25,7 @@ namespace QuizGame
             StartQuiz();
         }
 
-        
+
 
         private void AddQuestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -75,7 +75,7 @@ namespace QuizGame
             SetAnswerAndGoToNext("D");
         }
 
-        
+
 
         private void buttonEndQuiz_Click(object sender, EventArgs e)
         {
@@ -89,10 +89,10 @@ namespace QuizGame
             showHighScores.Show();
         }
 
-        
+
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         #region Private methods
@@ -152,5 +152,11 @@ namespace QuizGame
             buttonEndQuiz.Visible = false;
         }
         #endregion
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Credits credits = new Credits();
+            credits.Show();
+        }
     }
 }
