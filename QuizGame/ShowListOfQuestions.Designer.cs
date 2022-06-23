@@ -31,8 +31,8 @@
             this.listBoxQuestions = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBoxAnswer = new System.Windows.Forms.TextBox();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.textBoxAnswer = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // listBoxQuestions
@@ -63,13 +63,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Answer";
             // 
-            // textBoxAnswer
-            // 
-            this.textBoxAnswer.Location = new System.Drawing.Point(432, 45);
-            this.textBoxAnswer.Name = "textBoxAnswer";
-            this.textBoxAnswer.Size = new System.Drawing.Size(619, 27);
-            this.textBoxAnswer.TabIndex = 3;
-            // 
             // buttonClose
             // 
             this.buttonClose.Location = new System.Drawing.Point(432, 400);
@@ -80,13 +73,21 @@
             this.buttonClose.UseVisualStyleBackColor = true;
             this.buttonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
+            // textBoxAnswer
+            // 
+            this.textBoxAnswer.Location = new System.Drawing.Point(432, 45);
+            this.textBoxAnswer.Name = "textBoxAnswer";
+            this.textBoxAnswer.Size = new System.Drawing.Size(619, 338);
+            this.textBoxAnswer.TabIndex = 5;
+            this.textBoxAnswer.Text = "";
+            // 
             // ShowListOfQuestions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1063, 450);
-            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.textBoxAnswer);
+            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBoxQuestions);
@@ -102,7 +103,7 @@
         private ListBox listBoxQuestions;
         private Label label1;
         private Label label2;
-        private TextBox textBoxAnswer;
         private Button buttonClose;
+        private RichTextBox textBoxAnswer;
     }
 }

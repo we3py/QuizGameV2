@@ -134,9 +134,9 @@
             // 
             // buttonAnwerA
             // 
-            this.buttonAnwerA.Location = new System.Drawing.Point(31, 398);
+            this.buttonAnwerA.Location = new System.Drawing.Point(31, 247);
             this.buttonAnwerA.Name = "buttonAnwerA";
-            this.buttonAnwerA.Size = new System.Drawing.Size(490, 124);
+            this.buttonAnwerA.Size = new System.Drawing.Size(490, 196);
             this.buttonAnwerA.TabIndex = 1;
             this.buttonAnwerA.Text = "A";
             this.buttonAnwerA.UseVisualStyleBackColor = true;
@@ -145,9 +145,9 @@
             // 
             // buttonAnwerB
             // 
-            this.buttonAnwerB.Location = new System.Drawing.Point(531, 398);
+            this.buttonAnwerB.Location = new System.Drawing.Point(531, 247);
             this.buttonAnwerB.Name = "buttonAnwerB";
-            this.buttonAnwerB.Size = new System.Drawing.Size(490, 124);
+            this.buttonAnwerB.Size = new System.Drawing.Size(490, 196);
             this.buttonAnwerB.TabIndex = 2;
             this.buttonAnwerB.Text = "B";
             this.buttonAnwerB.UseVisualStyleBackColor = true;
@@ -156,9 +156,9 @@
             // 
             // buttonAnwerC
             // 
-            this.buttonAnwerC.Location = new System.Drawing.Point(31, 528);
+            this.buttonAnwerC.Location = new System.Drawing.Point(31, 456);
             this.buttonAnwerC.Name = "buttonAnwerC";
-            this.buttonAnwerC.Size = new System.Drawing.Size(490, 124);
+            this.buttonAnwerC.Size = new System.Drawing.Size(490, 196);
             this.buttonAnwerC.TabIndex = 3;
             this.buttonAnwerC.Text = "C";
             this.buttonAnwerC.UseVisualStyleBackColor = true;
@@ -167,9 +167,9 @@
             // 
             // buttonAnwerD
             // 
-            this.buttonAnwerD.Location = new System.Drawing.Point(531, 528);
+            this.buttonAnwerD.Location = new System.Drawing.Point(531, 456);
             this.buttonAnwerD.Name = "buttonAnwerD";
-            this.buttonAnwerD.Size = new System.Drawing.Size(490, 124);
+            this.buttonAnwerD.Size = new System.Drawing.Size(490, 196);
             this.buttonAnwerD.TabIndex = 4;
             this.buttonAnwerD.Text = "D";
             this.buttonAnwerD.UseVisualStyleBackColor = true;
@@ -180,7 +180,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(31, 140);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(990, 230);
+            this.richTextBox1.Size = new System.Drawing.Size(990, 90);
             this.richTextBox1.TabIndex = 5;
             this.richTextBox1.Text = "";
             this.richTextBox1.Visible = false;
