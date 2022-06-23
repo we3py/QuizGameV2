@@ -6,8 +6,8 @@ namespace QuizGame
 {
     public partial class MainProgram : Form
     {
-        private IRepositoryHandler _repositoryHandler;
-        private IQuizManager _quizManager;
+        private readonly IRepositoryHandler _repositoryHandler;
+        private readonly IQuizManager _quizManager;
         private List<Button> _answerButtons = new List<Button>();
         public MainProgram(IRepositoryHandler repositoryHandler, IQuizManager quizManager)
         {
