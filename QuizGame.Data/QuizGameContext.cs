@@ -1,20 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using QuizGame.Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuizGame.Data
 {
     public class QuizGameContext : DbContext
     {
+#pragma warning disable CS8618
         public DbSet<Question> Questions { get; set; }
         public DbSet<Highscore> Highscores { get; set; }
+#pragma warning restore CS8618
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=QuizGame;Integrated Security=True";
+            const string connectionString = @"Server=(localdb)\mssqllocaldb;Database=QuizGame;Integrated Security=True";
             optionsBuilder.UseSqlServer(connectionString);
         }
 

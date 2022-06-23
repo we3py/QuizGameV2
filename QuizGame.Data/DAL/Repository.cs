@@ -17,7 +17,9 @@
             => _context.Set<T>().ToList();
 
         public T GetFirstOrDefault(Func<T, bool> condition)
-            => _context.Set<T>().Where(condition).FirstOrDefault();
+#pragma warning disable CS8603
+            => _context.Set<T>().FirstOrDefault(condition);
+#pragma warning restore CS8603
 
         public void Save()
             => _context.SaveChanges();
