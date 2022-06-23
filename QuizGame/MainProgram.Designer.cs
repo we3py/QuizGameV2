@@ -123,7 +123,7 @@
             this.viewHighscoresToolStripMenuItem.Name = "viewHighscoresToolStripMenuItem";
             this.viewHighscoresToolStripMenuItem.Size = new System.Drawing.Size(129, 24);
             this.viewHighscoresToolStripMenuItem.Text = "View highscores";
-            this.viewHighscoresToolStripMenuItem.Click += new System.EventHandler(this.viewHighscoresToolStripMenuItem_Click);
+          //  this.viewHighscoresToolStripMenuItem.Click += new System.EventHandler(this.viewHighscoresToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 

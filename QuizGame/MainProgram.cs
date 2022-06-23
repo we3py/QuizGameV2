@@ -1,3 +1,7 @@
+using QuizGame.Data;
+using QuizGame.GUI;
+using QuizGame.Logic;
+
 namespace QuizGame
 {
     public partial class MainProgram : Form
@@ -90,11 +94,11 @@ namespace QuizGame
             addScore.Show();
         }
 
-        private void viewHighscoresToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var showHighScores = new ShowHighScoreList();
-            showHighScores.Show();
-        }
+        /*   private void viewHighscoresToolStripMenuItem_Click(object sender, EventArgs e)
+           {
+               var showHighScores = new ShowHighScoreList();
+               showHighScores.Show();
+           }*/
 
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
