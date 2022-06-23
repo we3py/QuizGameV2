@@ -60,36 +60,53 @@ namespace QuizGame
         #region Answer Buttons
         private void buttonAnwerA_Click(object sender, EventArgs e)
         {
+            if(!_quizManager.IsPlaying) 
+            {
+                MessageBox.Show("You finished your quiz");
+                return; 
+            }
             SetAnswerAndGoToNext("A");
-            if (!_quizManager.IsPlaying) { return; }
+            ShowAnswerResult(buttonAnwerA);
             SetAnswersOnButtons();
             SetButtonsColorToDefault();
         }
 
         private void buttonAnwerB_Click(object sender, EventArgs e)
         {
+            if (!_quizManager.IsPlaying)
+            {
+                MessageBox.Show("You finished your quiz");
+                return;
+            }
             SetAnswerAndGoToNext("B");
-            if (!_quizManager.IsPlaying) { return; }
-            SetAnswersOnButtons();
             ShowAnswerResult(buttonAnwerB);
+            SetAnswersOnButtons();
             SetButtonsColorToDefault();
         }
 
         private void buttonAnwerC_Click(object sender, EventArgs e)
         {
+            if (!_quizManager.IsPlaying)
+            {
+                MessageBox.Show("You finished your quiz");
+                return;
+            }
             SetAnswerAndGoToNext("C");
-            if (!_quizManager.IsPlaying) { return; }
-            SetAnswersOnButtons();
             ShowAnswerResult(buttonAnwerC);
+            SetAnswersOnButtons();
             SetButtonsColorToDefault();
         }
 
         private void buttonAnwerD_Click(object sender, EventArgs e)
         {
+            if (!_quizManager.IsPlaying)
+            {
+                MessageBox.Show("You finished your quiz");
+                return;
+            }
             SetAnswerAndGoToNext("D");
-            if (!_quizManager.IsPlaying) { return; }
-            SetAnswersOnButtons();
             ShowAnswerResult(buttonAnwerD);
+            SetAnswersOnButtons();
             SetButtonsColorToDefault();
         }
         #endregion
@@ -118,27 +135,24 @@ namespace QuizGame
         private void SetAnswerAndGoToNext(string answer)
         {
             _quizManager.SetUpAnswer(answer);
+
+            if (_quizManager.InGameQuestions.Count == 1)
+            {
+                return;
+            }
+            if (!_quizManager.IsPlaying) 
+            {
+                buttonEndQuiz.Visible = true;
+                return; 
+            }
+       
             richTextBox1.Text = _quizManager
                 .InGameQuestions[_quizManager.AnswerCount]
                 .ToString();
-
-            if (!_quizManager.IsPlaying)
-            {
-                if(_quizManager.InGameQuestions.Count == 1)
-                {                    
-                    MessageBox.Show("Correct answer is: " + _quizManager.InGameQuestions[0].CorrectAnswer);                    
-                    SetDefaultValuesInMainProgram();
-                    return;
-                }
-
-                buttonEndQuiz.Visible = true;
-                MessageBox.Show("No more questions. Press End Quiz button");
-                return;
-            }          
         }
 
         private void SetAnswersOnButtons()
-        {
+        {           
             _answerButtons.Clear();
 
             buttonAnwerA.Text = "A: " + _quizManager
@@ -181,13 +195,15 @@ namespace QuizGame
             if (condition)
             {
                 pressedButton.BackColor = Color.Green;
+                pressedButton.Update();
             }
             else
             {
                 pressedButton.BackColor = Color.Red;
+                pressedButton.Update();
                 foreach (var button in _answerButtons)
                 {
-                    if (IsButtonAnswerCorrect(button)) { button.BackColor = Color.Green; }
+                    if (IsButtonAnswerCorrect(button)) { button.BackColor = Color.Green; button.Update(); }
                 }
             }
         }
@@ -200,8 +216,14 @@ namespace QuizGame
 
         private bool IsButtonAnswerCorrect(Button button)
         {
-            return button.Text[0].ToString()
+            if (_quizManager.InGameQuestions.Count == 1)
+            {
+                return button.Text[0].ToString()
                 == _quizManager.InGameQuestions[_quizManager.AnswerCount].CorrectAnswer;
+            }
+
+            return button.Text[0].ToString()
+                == _quizManager.InGameQuestions[_quizManager.AnswerCount - 1].CorrectAnswer;
         }
         #endregion
 

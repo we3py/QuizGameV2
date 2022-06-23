@@ -23,18 +23,27 @@ namespace QuizGame.Logic
 
         public void SetUpAnswer(string answer)
         {
-            if (AnswerCount >= InGameQuestions.Count - 1) 
+            if (AnswerCount > InGameQuestions.Count - 1) 
             { 
                 IsPlaying = false;
                 return;
             }
 
+            
             Answers[AnswerCount] = answer;
             AnswerCount++;
+
+            if (AnswerCount == InGameQuestions.Count) 
+            { 
+                IsPlaying = false;
+                AnswerCount--;
+            }
+            
         }
 
         public void CalculateHighscore()
         {
+            Highscore = 0;
             for (int i = 0; i < InGameQuestions.Count - 1; i++)
             {
                 if (CheckAnswer(InGameQuestions[i].CorrectAnswer, Answers[i]))
@@ -56,7 +65,7 @@ namespace QuizGame.Logic
         {
             ClearInGameData();
             InGameQuestions = GetRandomQuestions(questionNumber);
-            Answers = new string[InGameQuestions.Count - 1];
+            Answers = new string[InGameQuestions.Count];
             Highscore = 0;
             AnswerCount = 0;
         }
