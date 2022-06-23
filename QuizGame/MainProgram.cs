@@ -19,12 +19,15 @@ namespace QuizGame
         #region Menu
         private void DrawQuestionToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (_quizManager.InGameQuestions.Count > 0)
+            {
             StartQuiz(1);
             richTextBox1.Visible = true;
             buttonAnwerA.Visible = true;
             buttonAnwerB.Visible = true;
             buttonAnwerC.Visible = true;
             buttonAnwerD.Visible = true;
+            }
 
                 //richTextBox1.Visible = false;
                 //buttonAnwerA.Visible = false;
@@ -36,12 +39,15 @@ namespace QuizGame
 
         private void StartQuizToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (_quizManager.InGameQuestions.Count > 0)
+            {
             StartQuiz(_quizManager.QuestionNumber);
             richTextBox1.Visible = true;
             buttonAnwerA.Visible = true;
             buttonAnwerB.Visible = true;
             buttonAnwerC.Visible = true;
             buttonAnwerD.Visible = true;
+            }
         }
 
         private void AddQuestionToolStripMenuItem_Click(object sender, EventArgs e)
