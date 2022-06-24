@@ -4,3 +4,4 @@ global using QuizGame.Data.Import;
 global using QuizGame.GUI;
 global using QuizGame.GUI.Import;
 global using QuizGame.Logic;
+global using System.Media;

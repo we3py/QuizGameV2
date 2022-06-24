@@ -13,6 +13,8 @@
             InitializeComponent();
             _quizManager.CalculateHighscore();
             labelScore.Text = _quizManager.Highscore.ToString();
+            using var soundPlayer = new SoundPlayer("Fanfary.wav");
+            soundPlayer.Play();
         }
 
         private void ButtonAddScore_Click(object sender, EventArgs e)
