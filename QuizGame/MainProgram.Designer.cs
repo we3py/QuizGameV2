@@ -46,6 +46,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.buttonEndQuiz = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -208,6 +209,15 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.ForeColor = System.Drawing.Color.Red;
+            this.progressBar1.Location = new System.Drawing.Point(31, 79);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(803, 29);
+            this.progressBar1.TabIndex = 8;
+            this.progressBar1.Visible = false;
+            // 
             // MainProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -215,6 +225,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1052, 733);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonEndQuiz);
             this.Controls.Add(this.richTextBox1);
@@ -257,5 +268,6 @@
         private Button buttonEndQuiz;
         private ToolStripMenuItem viewHighscoresToolStripMenuItem;
         private PictureBox pictureBox1;
+        private ProgressBar progressBar1;
     }
 }

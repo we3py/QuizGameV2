@@ -12,6 +12,7 @@ namespace QuizGame
             _repositoryHandler = repositoryHandler;
             _quizManager = quizManager;
             InitializeComponent();
+            progressBar1.Maximum = 10;
         }
 
         #region Menu
@@ -37,6 +38,7 @@ namespace QuizGame
                 _questionAmmount = _quizManager.QuestionNumber;
                 StartQuiz(_questionAmmount);
                 ShowQuizLayout();
+                progressBar1.Visible = true;
             }
             else
             {
@@ -138,6 +140,7 @@ namespace QuizGame
             var addScore = new AddToScoreList(_quizManager, _repositoryHandler, this);
             addScore.Show();
             HideQuizLayout();
+            progressBar1.Value = 0;
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)
@@ -145,7 +148,6 @@ namespace QuizGame
             Credits credits = new();
             credits.Show();
         }
-
 
         #endregion
 
@@ -170,6 +172,7 @@ namespace QuizGame
         private void SetAnswerAndGoToNext(string answer)
         {
             _quizManager.SetUpAnswer(answer);
+            progressBar1.Value++;
 
             if (_quizManager.InGameQuestions.Count == 1)
             {
@@ -282,10 +285,10 @@ namespace QuizGame
             buttonAnwerB.Visible = false;
             buttonAnwerC.Visible = false;
             buttonAnwerD.Visible = false;
+            progressBar1.Visible = false;
         }
 
         #endregion
-
 
     }
 }
