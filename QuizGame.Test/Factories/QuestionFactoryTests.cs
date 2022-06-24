@@ -5,8 +5,7 @@
     {
         [SetUp]
         public void SetUp()
-        {
-        }
+        {}
 
         private static QuestionFactory CreateFactory()
         {

@@ -212,7 +212,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 734);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1052, 733);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonEndQuiz);
             this.Controls.Add(this.richTextBox1);
@@ -221,8 +223,11 @@
             this.Controls.Add(this.buttonAnwerB);
             this.Controls.Add(this.buttonAnwerA);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(1070, 780);
+            this.MinimumSize = new System.Drawing.Size(1070, 780);
             this.Name = "MainProgram";
             this.Text = "Quiz Game by The Riddlers";
             this.menuStrip1.ResumeLayout(false);
