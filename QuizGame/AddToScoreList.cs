@@ -19,6 +19,7 @@
         {
             AddToHighScoreList();
             _mainProgram.SetDefaultValuesInMainProgram();
+            _mainProgram.SwitchMenuStrip(true);
         }
 
         private void AddToHighScoreList()

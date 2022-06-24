@@ -22,6 +22,7 @@ namespace QuizGame
                 _questionAmmount = _oneQuestion;
                 StartQuiz(_questionAmmount);
                 ShowQuizLayout();
+                SwitchMenuStrip(true);
             }
             else
             {
@@ -151,6 +152,12 @@ namespace QuizGame
                 .ToString();
             SetAnswersOnButtons();
             _quizManager.IsPlaying = true;
+            SwitchMenuStrip(false);
+        }
+
+        public void SwitchMenuStrip(bool onOrOff)
+        {
+            menuStrip1.Enabled = onOrOff;
         }
 
         private void SetAnswerAndGoToNext(string answer)
