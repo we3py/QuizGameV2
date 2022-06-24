@@ -39,6 +39,7 @@ namespace QuizGame
                 StartQuiz(_questionAmmount);
                 ShowQuizLayout();
                 progressBar1.Visible = true;
+                progressBar1.Value = 0;
             }
             else
             {
