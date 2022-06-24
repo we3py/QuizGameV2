@@ -17,6 +17,7 @@
             soundPlayer.Play();
         }
 
+        #region buttons 
         private void ButtonAddScore_Click(object sender, EventArgs e)
         {
             AddToHighScoreList();
@@ -24,6 +25,9 @@
             _mainProgram.SwitchMenuStrip(true);
         }
 
+        #endregion
+
+        #region Private methods
         private void AddToHighScoreList()
         {
             if (textBoxUserName.Text != string.Empty)
@@ -41,6 +45,9 @@
                     this.labelEmptyName.Text = string.Empty;
                 }
             }
+
+            #endregion
+
         }
     }
 }

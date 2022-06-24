@@ -16,10 +16,16 @@
             textBoxAnswer.Text = "Choose question";
         }
 
+        #region Buttons
+
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        #endregion
+
+        #region Listboxes
 
         private void ListBoxQuestions_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -43,5 +49,7 @@
             textBoxAnswer.Text = answer;
             textBoxAnswer.Update();
         }
+
+        #endregion
     }
 }

@@ -10,10 +10,14 @@
             player.Play();
         }
 
+        #region Buttons
+
         private void Button1_Click(object sender, EventArgs e)
         {
             player.Stop();
             this.Close();
         }
+
+        #endregion
     }
 }

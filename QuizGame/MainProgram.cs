@@ -140,6 +140,13 @@ namespace QuizGame
             HideQuizLayout();
         }
 
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            Credits credits = new();
+            credits.Show();
+        }
+
+
         #endregion
 
         #region Private methods
@@ -258,13 +265,7 @@ namespace QuizGame
             return button.Text[0].ToString()
                 == _quizManager.InGameQuestions[_quizManager.AnswerCount - 1].CorrectAnswer;
         }
-        #endregion
 
-        private void PictureBox1_Click(object sender, EventArgs e)
-        {
-            Credits credits = new();
-            credits.Show();
-        }
         private void ShowQuizLayout()
         {
             richTextBox1.Visible = true;
@@ -282,5 +283,9 @@ namespace QuizGame
             buttonAnwerC.Visible = false;
             buttonAnwerD.Visible = false;
         }
+
+        #endregion
+
+
     }
 }
